@@ -12,8 +12,10 @@ module.exports = (sequelize, DataTypes) => {
     totalTickets: DataTypes.INTEGER,
     ticketPrice: DataTypes.DECIMAL
   }, {});
-  Event.associate = function(models) {
+  Event.associate = function (models) {
     // associations can be defined here
+    Event.belongsTo(models.Category, { foreignKey: 'categoryId' });
+    Event.hasMany(models.Ticket, { foreignKey: 'eventId' });
   };
   return Event;
 };
