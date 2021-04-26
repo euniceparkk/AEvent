@@ -1,8 +1,16 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Ticket = sequelize.define('Ticket', {
-    eventId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
+    eventId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: { model: "Events" }
+    },
+    userId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: { model: "Users" }
+    }
   }, {});
   Ticket.associate = function (models) {
     // associations can be defined here
