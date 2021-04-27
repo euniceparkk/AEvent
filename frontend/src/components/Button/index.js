@@ -4,6 +4,7 @@ function Button({ text }) {
   return (
     <button className='button'>
       {text}
+      <a href="#"/>
     </button>
   )
 }
