@@ -15,4 +15,26 @@ router.get('/:id', asyncHandler(async function (req, res) {
   return res.json(event);
 }));
 
+// GET all User's tickets
+router.get('/tickets', restoreUser, asyncHandler(async (req, res) => {
+  const { user } = req;
+  const tickets = await Ticket.findAll({
+    where: { userId: user.id },
+    include: [Event],
+  });
+  const confirmedTickets = tickets.map(conTicket => conTicket.Event);
+  return res.json(confirmedTickets);
+}));
+
+// GET all User's favorites
+router.get('/favorites', restoreUser, asyncHandler(async (req, res) => {
+  const { user } = req;
+  const favorites = await Favorite.findAll({
+    where: { userId: user.id },
+    include: [Event],
+  })
+  const userFav = favorites.map(fav => fav.Event)
+  return res.json(userFav);
+}));
+
 module.exports = router;

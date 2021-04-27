@@ -1,45 +1,88 @@
-// Action Verbs
-const LOAD = 'EVENTS/LOAD';
-// const LOAD_TICKETS = 'EVENTS/TICKETS';
+// Action Verbs----------------------------------------------
+const LOAD_EVENTS = 'events/LOAD_EVENTS';
+const LOAD_TICKETS = 'events/LOAD_TICKETS';
+const LOAD_FAVORITES = 'events/LOAD_FAVORITES'
 
-// Action Creators
+// Action Creators-------------------------------------------
 const loadEvents = events => ({
-  type: LOAD,
+  type: LOAD_EVENTS,
   events
+});
+
+const loadTickets = tickets => ({
+  type: LOAD_TICKETS,
+  tickets
+});
+
+const loadFavorites = favorites => ({
+  type: LOAD_FAVORITES,
+  favorites
 })
 
-// Thunks
+// Thunks-------------------------------------------------
 // GET all events
 export const getEvents = () => async dispatch => {
   const response = await fetch(`/api/events`);
 
   if (response.ok) {
-    const data = await response.json();
-    dispatch(loadEvents(data.events))
+    const events = await response.json();
+    dispatch(loadEvents(events))
   }
 }
 
-// Event Reducer
+// GET all tickets
+export const getTickets = () => async dispatch => {
+  const response = await fetch(`/api/events/tickets`);
+
+  if (response.ok) {
+    const tickets = await response.json();
+    dispatch(loadTickets(tickets))
+  }
+}
+
+// GET all favorites
+export const getFavorites = () => async dispatch => {
+  const response = await fetch(`/api/events/favorites`);
+
+  if (response.ok) {
+    const favorites = await response.json();
+    dispatch(loadFavorites(favorites))
+  }
+}
+
+// Reducers------------------------------------------------
 const initialState = {
-  eventsList: {},
+  events: [],
+  tickets: [],
+  favorites: [],
 }
 
 const eventsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOAD:
-      const allEvents = [];
+    case LOAD_EVENTS: {
+      const allEvents = {};
       action.events.forEach(event => {
-        allEvents.push(event);
+        allEvents[event.id] = event;
       });
       return {
+        ...allEvents,
         ...state,
-        ...action.events,
-        allEvents
+        events: action.events,
       }
+    }
+    case LOAD_TICKETS: {
+      return {
+        ...state,
+        tickets: action.tickets,
+      }
+    }
+    case LOAD_FAVORITES: {
+      return {
+        ...state,
+        favorites: action.favorites
+      }
+    }
 
-    // case SOMETHING: {
-
-    // }
     default:
       return state;
   }
