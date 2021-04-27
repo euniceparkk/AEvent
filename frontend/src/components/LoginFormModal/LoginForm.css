@@ -1,8 +1,68 @@
+.form-modal{
+  margin: 20px;
+  padding: 5px;
+  transition: all .4s;
+  height: 60vh;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+
+}
+
+/* .h1{
+
+}
+
+.h2{
+
+} */
+
 .login-form {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
 }
+
 .login-form__errors {
   color: red
+}
+
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: large;
+  color: black;
+}
+.modal__close:hover {
+  color: #F3712B;
+}
+
+label {
+  padding: 10px;
+}
+
+input{
+  height: 20px;
+}
+
+input:focus {
+  outline: 1.5px solid #F3712B;
+}
+
+.submit-btn{
+  color: white;
+  background-color: #E75A0D;
+  padding: 8px;
+  margin: 15px;
+  width: 200px;
+  border-radius: 5px;
+}
+
+.submit-btn:hover {
+  background-color: #F3712B;
+  /* color: black; */
 }

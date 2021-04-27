@@ -23,5 +23,7 @@
   background-color:white;
   border-radius: 30px; 
   padding: 1em 3em;
-  position: relative;
+  /* position: relative; */
+  position: fixed;
+
 }

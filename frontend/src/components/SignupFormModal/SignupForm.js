@@ -29,6 +29,27 @@ function SignupFormPage() {
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
+  // // Validation for Signup Errors
+  // const validate = (data) => {
+  //   const errors = {};
+  //   if (!data.username) errors.username = 'Username required';
+  //   if (!data.email) errors.email = 'Email required';
+  //   if (!data.password) errors.password = 'Password required';
+  //   else if (data.password.length < 8)
+  //     errors.password = 'Must have at least 8 characters';
+  //   else if (data.password !== data.confirmPassword)
+  //     errors.confirmPassword = 'Passwords must match';
+
+  //   return errors;
+  // };
+
+  // const Input = ({ input, type, placeholder, meta: { touched, error } }) => (
+  //   <React.Fragment>
+  //     <input {...input} type={type} placeholder={placeholder} />
+  //     {touched && error}
+  //   </React.Fragment>
+  // );
+
   return (
     <form className='signup-form' onSubmit={handleSubmit}>
       <ul className='signup-form__errors'>
@@ -41,8 +62,10 @@ function SignupFormPage() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          // component={Input}
           placeholder='Email'
         />
+        {/* {errors.username} */}
       </label>
       <label>
         {/* Username */}
