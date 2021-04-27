@@ -5,7 +5,7 @@ import './LoginForm.css';
 
 function LoginForm() {
   const dispatch = useDispatch();
-  
+
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -22,8 +22,8 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
+    <form className='login-form' onSubmit={handleSubmit}>
+      <ul className='login-form__errors'>
         {errors.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}

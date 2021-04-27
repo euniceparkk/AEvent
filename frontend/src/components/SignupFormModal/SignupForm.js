@@ -6,7 +6,7 @@ import './SignupForm.css';
 
 function SignupFormPage() {
   const dispatch = useDispatch();
-  
+
   // const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -30,47 +30,51 @@ function SignupFormPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
+    <form className='signup-form' onSubmit={handleSubmit}>
+      <ul className='signup-form__errors'>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
       <label>
-        Email
+        {/* Email */}
         <input
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          placeholder='Email'
         />
       </label>
       <label>
-        Username
+        {/* Username */}
         <input
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
+          placeholder='Username'
         />
       </label>
       <label>
-        Password
+        {/* Password */}
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          placeholder='Password'
         />
       </label>
       <label>
-        Confirm Password
+        {/* Confirm Password */}
         <input
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
+          placeholder='Confirm Password'
         />
       </label>
-      <button type="submit">Sign Up</button>
+      <button className='submit-btn' type="submit">Sign Up</button>
     </form>
   );
 }

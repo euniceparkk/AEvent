@@ -71,12 +71,20 @@ const eventsReducer = (state = initialState, action) => {
       }
     }
     case LOAD_TICKETS: {
+      const allTickets = {};
+      action.tickets.forEach(ticket => {
+        allTickets[ticket.id] = ticket;
+      });
       return {
         ...state,
         tickets: action.tickets,
       }
     }
     case LOAD_FAVORITES: {
+      const allFavorites = {};
+      action.favorites.forEach(favorite => {
+        allFavorites[favorite.id] = favorite;
+      });
       return {
         ...state,
         favorites: action.favorites
