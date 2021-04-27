@@ -16,8 +16,8 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
 
     // JOINS TABLE
-    // Ticket.belongsTo(models.Event, { foreignKey: 'eventId' });
-    // Ticket.belongsTo(models.User, { foreignKey: 'userId' });
+    Ticket.belongsTo(models.Event, { foreignKey: 'eventId' });
+    Ticket.belongsTo(models.User, { foreignKey: 'userId' });
   };
   return Ticket;
 };
