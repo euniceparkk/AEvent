@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import LoginForm from '../LoginForm';
 import SignupForm from '../SignupForm';
 
+import './EntryModal.css';
+
 function Entry() {
   const [isRegister, setIsRegister] = useState(false);
   const onClick = () => {
     setIsRegister(!isRegister)
   }
-
   // console.log(isRegister)
 
   let component;

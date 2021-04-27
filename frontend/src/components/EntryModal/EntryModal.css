@@ -1,6 +1,6 @@
 .form-modal{
-  margin: 20px;
-  padding: 5px;
+  margin: 0px 30px 80px 30px;
+  padding: 0px 2px 30px 2px;
   transition: all .4s;
   height: 60vh;  
   display: flex;
@@ -18,14 +18,15 @@
 
 } */
 
-.signup-form {
+.login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.signup-form__errors {
-  color: red
+.login-form__errors {
+  color: red;
+  /* text-decoration: none; */
 }
 
 .modal__close {
@@ -56,13 +57,35 @@ input:focus {
 .submit-btn{
   color: white;
   background-color: #E75A0D;
-  padding: 8px;
+  padding: 8px 10px;
   margin: 15px;
   width: 200px;
   border-radius: 5px;
+  font-size: medium;
+
 }
 
 .submit-btn:hover {
   background-color: #F3712B;
   /* color: black; */
+}
+
+.demo-btn {
+  color: white;
+  background-color: #E75A0D;
+  font-size: small;
+  border-radius: 5px;
+  padding: 4px 15px;
+
+}
+
+.demo-btn:hover {
+  background-color: #F3712B;
+}
+
+.other-btn {
+}
+
+.other-div {
+  padding-top: 30px;
 }

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import './SignupForm.css';
-// import Button from '../Button';
+
+// import './SignupForm.css';
 
 function SignupForm({ handleClick }) {
   const dispatch = useDispatch();
@@ -56,8 +56,8 @@ function SignupForm({ handleClick }) {
       <div className='form-modal'>
         <h1 className='h1'>Welcome</h1>
         <h2 className='h2'>Create an account.</h2>
-        <form className='signup-form' onSubmit={handleSubmit}>
-          <ul className='signup-form__errors'>
+        <form className='login-form' onSubmit={handleSubmit}>
+          <ul className='login-form__errors'>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
           <label>
@@ -103,10 +103,12 @@ function SignupForm({ handleClick }) {
             />
           </label>
           <button className='submit-btn' type="submit">Sign Up</button>
-          <button type='button' onClick={handleClick}>Have an account?</button>
         </form>
-        {/* <Button text={'Have an account?'} /> */}
-        {/* <a href="#" class="modal__close">&times;</a> */}
+        <button type='button' className='demo-btn' onClick={handleClick}>Demo User</button>
+        <div className='other-div'>
+          <button type='button' className='other-btn' onClick={handleClick}>Have an account?</button>
+        </div>
+        <a href="#" class="modal__close">&times;</a>
       </div>
     </>
   );

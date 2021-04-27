@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-// import Button from '../Button';
 import { Redirect } from 'react-router-dom';
 
-import './LoginForm.css';
+// import './LoginForm.css';
 
 function LoginForm({ handleClick }) {
   const dispatch = useDispatch();
@@ -27,6 +26,16 @@ function LoginForm({ handleClick }) {
         if (data && data.errors) setErrors(data.errors);
       }
     );
+  };
+
+  const demoSubmit = (e) => {
+    e.preventDefault();
+    setCredential('demo')
+    setPassword('password')
+    return dispatch(sessionActions.login({ credential, password }))
+      .catch(async (res) => {
+        const data = await res.json();
+      })
   };
 
   return (
@@ -61,10 +70,12 @@ function LoginForm({ handleClick }) {
             />
           </label>
           <button className='submit-btn' type="submit">Log In</button>
-          <button type='button' onClick={handleClick}>Demo User</button>
         </form>
-        {/* <Button onClick={handleClick} text={"Don't have an account?"} /> */}
-        {/* <a href="#" class="modal__close">&times;</a> */}
+        <button type='button' className='demo-btn' onClick={handleClick}>Demo User</button>
+        <div className='other-div'>
+          <button type='button' className='other-btn' onClick={handleClick}>Don't have an account?</button>
+        </div>
+        <a href="#" class="modal__close">&times;</a>
       </div>
     </>
 
