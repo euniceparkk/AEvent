@@ -37,4 +37,23 @@ router.get('/favorites', restoreUser, asyncHandler(async (req, res) => {
   return res.json(userFav);
 }));
 
+// POST User's favorite events
+router.post('/:id/favorited', requireAuth, asyncHandler(async (req, res) => {
+  const eventId = req.params.id;
+  const userId = req.user.id;
+  const favorited = await Favorite.create({ eventId, userId });
+  const event = await Event.findByPk(eventId);
+  res.json(event);
+}))
+
+// DELETE User's favorited event
+router.delete('/:id/favorites', requireAuth, asyncHandler(async (req, res) => {
+  const eventId = req.params.id;
+  const userId = req.user.id;
+  const unfavorite = await Favorite.findOne({ where: { eventId, userId } });
+  await unfavorite.destroy();
+
+  res.json(eventId);
+}))
+
 module.exports = router;

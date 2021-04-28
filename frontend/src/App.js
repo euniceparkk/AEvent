@@ -20,7 +20,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path='/'>
-            {/* <HomePage /> */}
+            <HomePage />
           </Route>
           <Route>
             <h1>Page Not Found</h1>

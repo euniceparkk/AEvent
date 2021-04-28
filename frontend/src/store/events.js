@@ -1,7 +1,11 @@
+import { csrfFetch } from "./csrf";
+
 // Action Verbs----------------------------------------------
 const LOAD_EVENTS = 'events/LOAD_EVENTS';
 const LOAD_TICKETS = 'events/LOAD_TICKETS';
-const LOAD_FAVORITES = 'events/LOAD_FAVORITES'
+const LOAD_FAVORITES = 'events/LOAD_FAVORITES';
+const FAVORITED = 'events/FAVORITED';
+const UNFAVORITED = 'events/UNFAVORITED';
 
 // Action Creators-------------------------------------------
 const loadEvents = events => ({
@@ -17,7 +21,17 @@ const loadTickets = tickets => ({
 const loadFavorites = favorites => ({
   type: LOAD_FAVORITES,
   favorites
-})
+});
+
+const favorited = event => ({
+  type: FAVORITED,
+  event
+});
+
+const unfavorited = eventId => ({
+  type: UNFAVORITED,
+  eventId
+});
 
 // Thunks-------------------------------------------------
 // GET all events
@@ -28,7 +42,7 @@ export const getEvents = () => async dispatch => {
     const events = await response.json();
     dispatch(loadEvents(events))
   }
-}
+};
 
 // GET all tickets
 export const getTickets = () => async dispatch => {
@@ -38,7 +52,7 @@ export const getTickets = () => async dispatch => {
     const tickets = await response.json();
     dispatch(loadTickets(tickets))
   }
-}
+};
 
 // GET all favorites
 export const getFavorites = () => async dispatch => {
@@ -48,7 +62,38 @@ export const getFavorites = () => async dispatch => {
     const favorites = await response.json();
     dispatch(loadFavorites(favorites))
   }
-}
+};
+
+// POST a favorite
+export const favoritedEvent = (data) => async dispatch => {
+  const eventId = data.id;
+
+  // Cross Site Request Forgeries Middleware
+  const response = await csrfFetch(`/api/events/${eventId}/favorited`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ eventId }),
+  });
+
+  if (response.ok) {
+    const event = await response.json();
+    dispatch(favorited(event));
+  }
+};
+
+// DELETE a favorite
+export const unfavoritedEvent = (eventId) => async dispatch => {
+  const response = await csrfFetch(`/api/events/${eventId}/favorites`, {
+    method: 'DELETE',
+  });
+
+  if (response.ok) {
+    const unfavorite = await response.json();
+    dispatch(unfavorited(unfavorite))
+  }
+};
 
 // Reducers------------------------------------------------
 const initialState = {
@@ -58,6 +103,8 @@ const initialState = {
 }
 
 const eventsReducer = (state = initialState, action) => {
+  let newState;
+
   switch (action.type) {
     case LOAD_EVENTS: {
       const allEvents = {};
@@ -89,6 +136,20 @@ const eventsReducer = (state = initialState, action) => {
         ...state,
         favorites: action.favorites
       }
+    }
+    case FAVORITED: {
+      newState = { ...state }
+      const newFavorite = [...newState.favorites, action.event]
+      newState.favorites = newFavorite;
+      return newState;
+    }
+    case UNFAVORITED: {
+      newState = { ...state }
+      const newFavorite = newState.favorites.filter(
+        (event) => event.id.toString() !== action.eventId.toString());
+
+      newState.favorites = newFavorite;
+      return newState;
     }
 
     default:

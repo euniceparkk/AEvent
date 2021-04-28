@@ -108,7 +108,7 @@ function SignupForm({ handleClick }) {
         <div className='other-div'>
           <button type='button' className='other-btn' onClick={handleClick}>Have an account?</button>
         </div>
-        <a href="#" class="modal__close">&times;</a>
+        {/* <a href="#" class="modal__close">&times;</a> */}
       </div>
     </>
   );

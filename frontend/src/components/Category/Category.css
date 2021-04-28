@@ -1,0 +1,12 @@
+.category-bar__link {
+  text-decoration: none;
+  color: black;
+  padding: 15px;
+  /* transition: box-shadow 1s; */
+
+}
+
+.category-bar__link:hover {
+  /* box-shadow: 0 0 3px #144BCC; */
+  color: #144BCC;
+}

@@ -34,7 +34,7 @@ function LoginForm({ handleClick }) {
     setPassword('password')
     return dispatch(sessionActions.login({ credential, password }))
       .catch(async (res) => {
-        const data = await res.json();
+        // const data = await res.json();
       })
   };
 
@@ -71,11 +71,11 @@ function LoginForm({ handleClick }) {
           </label>
           <button className='submit-btn' type="submit">Log In</button>
         </form>
-        <button type='button' className='demo-btn' onClick={handleClick}>Demo User</button>
+        <button type='button' className='demo-btn' onClick={demoSubmit}>Demo User</button>
         <div className='other-div'>
           <button type='button' className='other-btn' onClick={handleClick}>Don't have an account?</button>
         </div>
-        <a href="#" class="modal__close">&times;</a>
+        {/* <a href="#" class="modal__close">&times;</a> */}
       </div>
     </>
 

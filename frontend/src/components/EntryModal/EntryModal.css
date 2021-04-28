@@ -27,6 +27,7 @@
 .login-form__errors {
   color: red;
   /* text-decoration: none; */
+  list-style-type: none;
 }
 
 .modal__close {
