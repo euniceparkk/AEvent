@@ -12,10 +12,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(100)
       },
-      userHostId: {
+      host: {
         allowNull: false,
-        type: Sequelize.INTEGER,
-        references: { model: "Users" }
+        type: Sequelize.STRING(100)
       },
       categoryId: {
         allowNull: false,

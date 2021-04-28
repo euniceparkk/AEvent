@@ -10,10 +10,13 @@ router.get('/', asyncHandler(async (req, res) => {
   return res.json(events)
 }))
 
+// GET one event
 router.get('/:id', asyncHandler(async function (req, res) {
   const event = await db.Event.findOne(req.params.id);
   return res.json(event);
 }));
+
+
 
 // GET all User's tickets
 router.get('/tickets', restoreUser, asyncHandler(async (req, res) => {

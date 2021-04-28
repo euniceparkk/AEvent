@@ -5,14 +5,16 @@ import React from 'react';
 import CategoryBar from '../CategoryBar';
 import CategoryEvents from '../CategoryEvents';
 
+import './HomePage.css'
+
 function HomePage() {
 
   return (
-    <>
+    <div className='home-page__wrapper'>
       <h1>Home Page</h1>
       <CategoryBar />
-      <CategoryEvents />
-    </>
+      {/* <CategoryEvents /> */}
+    </div>
 
   );
 

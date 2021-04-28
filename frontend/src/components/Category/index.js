@@ -1,23 +1,49 @@
 import React, { useState } from 'react';
-// import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
+import CategoryEvents from '../CategoryEvents';
 // import CategoryEvents from '../CategoryEvents';
 
 import './Category.css'
 
-function Category({ category, events }) {
+function Category({ categoryName, categoryId }) {
+  // const dispatch = useDispatch();
 
-  const [stateCat, setStateCat] = useState('');
+  // useEffect(() => {
+  // dispatch(getCategoryIds());
+  // }, [dispatch])
+
+  // const [category, setCategory] = useState('');
+
+  const handleClick = (e) => {
+    const categoryId = e.target.attributes.value;
+    console.log(categoryId);
+    return (
+      <Redirect to='/' />
+    )
+  };
+
+  // console.log("category", category)
 
   return (
+    // <div>
+    //   <div>
+    //     {categoryName}
+    //   </div>
+    // </div>
     <div>
-      <div className="category-bar__link" key={category} to={`category/${category.id}`}>
-        <h3 className='category' onClick={(e) => setStateCat(e.target.value)}>{category}</h3>
+      <div onClick={handleClick} className="category-bar__link" key={categoryId}>
+        <h3 className='category' value={categoryId} >{categoryName}</h3>
+        <h3>{categoryName}</h3>
         {/* <h3>{category}</h3> */}
+        <CategoryEvents categoryId={categoryId} />
       </div>
     </div>
-
   );
 
 }
+
+// <NavLink className='allEvents-byCategory' to={`events/${category.id} `} >
+//   { category}
+// </NavLink >
 
 export default Category;

@@ -10,3 +10,8 @@
   /* box-shadow: 0 0 3px #144BCC; */
   color: #144BCC;
 }
+
+.allEvents-byCategory{
+  text-decoration: none;
+  color: black;
+}

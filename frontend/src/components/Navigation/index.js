@@ -27,27 +27,44 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <div className='nav-bar'>
-      <div className='nav-bar__main'>
-        <NavLink className='home-btn' exact to="/">
-          <a href='/' className='home-logo'>
-            <img alt='logo' className='home-logo' src={'/images/logo/main-logo-trans.png'} />
-          </a>
+    <div className='nav-bar__container'>
+      <div className='nav-bar__logo-link'>
+        <NavLink exact to="/">
+          <img alt='logo' className='home-logo__image' src={'/images/logo/main-logo-trans.png'} />
         </NavLink>
-        <button className="nav-bar__icon">
-          {<i class="fas fa-plus"></i>}
-        </button>
-        <button className="nav-bar__icon">
-          <i className="far fa-heart"></i>
-        </button>
-        <button className="nav-bar__icon">
-          <i className="fas fa-ticket-alt"></i>
-        </button>
       </div>
-      {isLoaded && sessionLinks}
+
+      <form className='nav-bar__search'>
+        <input
+          className='search-bar'
+          type='text'
+          placeholder='Search events'
+        >
+        </input>
+        <div className="nav-bar__search-icon">
+          <i className="fas fa-search"></i>
+        </div>
+      </form>
+
+      <div className='nav-bar__icons'>
+        <div className="icon-heart">
+          <i className="far fa-heart"></i>
+        </div>
+        <div className="icon-ticket">
+          <i className="fas fa-ticket-alt"></i>
+        </div>
+      </div>
+
+      <div className='session-links'>
+        {isLoaded && sessionLinks}
+      </div>
+
     </div>
   );
 }
+
+{/* <a href='/' className='home-logo'> */ }
+{/* </a> */ }
 
 // function NavigationItems(props) {
 //   return (

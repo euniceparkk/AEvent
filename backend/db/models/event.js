@@ -5,10 +5,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(100),
       allowNull: false
     },
-    userHostId: {
-      type: DataTypes.INTEGER,
+    host: {
+      type: DataTypes.STRING(100),
       allowNull: false,
-      references: { model: "Users" }
     },
     categoryId: {
       type: DataTypes.INTEGER,
@@ -46,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Event.belongsTo(models.Category, { foreignKey: 'categoryId' });
     Event.hasMany(models.Ticket, { foreignKey: 'eventId' });
-    Event.belongsTo(models.User, { foreignKey: 'userHostId' });
+    // Event.belongsTo(models.User, { foreignKey: 'userHostId' });
 
     Event.belongsToMany(models.User, {
       through: 'Ticket',
