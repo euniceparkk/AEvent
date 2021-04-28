@@ -11,7 +11,7 @@ function Category({ category, events }) {
   return (
     <div>
       <div className="category-bar__link" key={category} to={`category/${category.id}`}>
-        <h3 className='category' onClick={() => setStateCat(stateCat)}>{category}</h3>
+        <h3 className='category' onClick={(e) => setStateCat(e.target.value)}>{category}</h3>
         {/* <h3>{category}</h3> */}
       </div>
     </div>

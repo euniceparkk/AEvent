@@ -1,0 +1,23 @@
+.single-event{
+  border: 2px solid red;
+  display: flex;
+  justify-content: flex-start;
+  padding: 15px;
+
+  /* width: 90%; */
+  /* margin: 15vh auto 0; */
+  /* flex-direction: row; */
+  /* max-width: 700px; */
+  /* justify-content: center; */
+  /* padding: 30px; */
+}
+.single-event__link{
+  /* border: 2px solid red; */
+  text-decoration: none;
+
+}
+.single-event__image{
+  /* border: 2px solid red; */
+  height: 250px;
+  width: 250px;
+}

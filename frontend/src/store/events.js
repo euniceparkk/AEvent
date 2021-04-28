@@ -1,13 +1,15 @@
 import { csrfFetch } from "./csrf";
 
-// Action Verbs----------------------------------------------
+/************* Action Verbs **************************************************************/
 const LOAD_EVENTS = 'events/LOAD_EVENTS';
 const LOAD_TICKETS = 'events/LOAD_TICKETS';
 const LOAD_FAVORITES = 'events/LOAD_FAVORITES';
 const FAVORITED = 'events/FAVORITED';
 const UNFAVORITED = 'events/UNFAVORITED';
+const LOAD_CATEGORIES = 'events/LOAD_CATEGORIES';
 
-// Action Creators-------------------------------------------
+
+/************* Action Creators **************************************************************/
 const loadEvents = events => ({
   type: LOAD_EVENTS,
   events
@@ -33,7 +35,13 @@ const unfavorited = eventId => ({
   eventId
 });
 
-// Thunks-------------------------------------------------
+const loadCategoryIds = categories => ({
+  type: LOAD_CATEGORIES,
+  categories
+})
+
+
+/******************** Thunks **************************************************************/
 // GET all events
 export const getEvents = () => async dispatch => {
   const response = await fetch(`/api/events`);
@@ -51,6 +59,16 @@ export const getTickets = () => async dispatch => {
   if (response.ok) {
     const tickets = await response.json();
     dispatch(loadTickets(tickets))
+  }
+};
+
+// GET all category Ids
+export const getCategoryIds = () => async dispatch => {
+  const response = await fetch(`/api/events/category`);
+
+  if (response.ok) {
+    const categories = await response.json();
+    dispatch(loadCategoryIds(categories))
   }
 };
 
@@ -95,11 +113,13 @@ export const unfavoritedEvent = (eventId) => async dispatch => {
   }
 };
 
-// Reducers------------------------------------------------
+
+/******************** Reducers **************************************************************/
 const initialState = {
   events: [],
   tickets: [],
   favorites: [],
+  categories: [],
 }
 
 const eventsReducer = (state = initialState, action) => {
@@ -134,7 +154,17 @@ const eventsReducer = (state = initialState, action) => {
       });
       return {
         ...state,
-        favorites: action.favorites
+        favorites: action.favorites,
+      }
+    }
+    case LOAD_CATEGORIES: {
+      const allCategoryIds = {};
+      action.categories.forEach(category => {
+        allCategoryIds[category.id] = category;
+      });
+      return {
+        ...state,
+        categories: action.categories,
       }
     }
     case FAVORITED: {
