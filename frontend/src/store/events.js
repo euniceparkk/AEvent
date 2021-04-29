@@ -1,190 +1,192 @@
-import { csrfFetch } from "./csrf";
+import { csrfFetch } from './csrf'
 
 /************* Action Verbs **************************************************************/
-const LOAD_EVENTS = 'events/LOAD_EVENTS';
-const LOAD_TICKETS = 'events/LOAD_TICKETS';
-const LOAD_FAVORITES = 'events/LOAD_FAVORITES';
-const FAVORITED = 'events/FAVORITED';
-const UNFAVORITED = 'events/UNFAVORITED';
-const LOAD_CATEGORIES = 'events/LOAD_CATEGORIES';
-
+const LOAD_EVENTS = 'events/LOAD_EVENTS'
+const LOAD_TICKETS = 'events/LOAD_TICKETS'
+const LOAD_FAVORITES = 'events/LOAD_FAVORITES'
+const FAVORITED = 'events/FAVORITED'
+const UNFAVORITED = 'events/UNFAVORITED'
+const LOAD_CATEGORIES = 'events/LOAD_CATEGORIES'
 
 /************* Action Creators **************************************************************/
-const loadEvents = events => ({
-  type: LOAD_EVENTS,
-  events
-});
-
-const loadTickets = tickets => ({
-  type: LOAD_TICKETS,
-  tickets
-});
-
-const loadFavorites = favorites => ({
-  type: LOAD_FAVORITES,
-  favorites
-});
-
-const favorited = event => ({
-  type: FAVORITED,
-  event
-});
-
-const unfavorited = eventId => ({
-  type: UNFAVORITED,
-  eventId
-});
-
-const loadCategoryIds = categories => ({
-  type: LOAD_CATEGORIES,
-  categories
+const loadEvents = (events) => ({
+	type: LOAD_EVENTS,
+	events,
 })
 
+const loadTickets = (tickets) => ({
+	type: LOAD_TICKETS,
+	tickets,
+})
+
+const loadFavorites = (favorites) => ({
+	type: LOAD_FAVORITES,
+	favorites,
+})
+
+const favorited = (event) => ({
+	type: FAVORITED,
+	event,
+})
+
+const unfavorited = (eventId) => ({
+	type: UNFAVORITED,
+	eventId,
+})
+
+const loadCategoryIds = (categories) => ({
+	type: LOAD_CATEGORIES,
+	categories,
+})
 
 /******************** Thunks **************************************************************/
 // GET all events
-export const getEvents = () => async dispatch => {
-  const response = await fetch(`/api/events`);
+export const getEvents = () => async (dispatch) => {
+	const response = await csrfFetch(`/api/events`)
 
-  if (response.ok) {
-    const events = await response.json();
-    dispatch(loadEvents(events))
-  }
-};
+	if (response.ok) {
+		const events = await response.json()
+		console.log('events', events)
+		dispatch(loadEvents(events))
+	}
+}
 
 // GET all tickets
-export const getTickets = () => async dispatch => {
-  const response = await fetch(`/api/events/tickets`);
+export const getTickets = () => async (dispatch) => {
+	const response = await fetch(`/api/events/tickets`)
 
-  if (response.ok) {
-    const tickets = await response.json();
-    dispatch(loadTickets(tickets))
-  }
-};
+	if (response.ok) {
+		const tickets = await response.json()
+		dispatch(loadTickets(tickets))
+	}
+}
 
 // GET all category Ids
-export const getCategoryIds = () => async dispatch => {
-  const response = await fetch(`/api/events/category`);
+export const getCategoryIds = () => async (dispatch) => {
+	const response = await fetch(`/api/events/category`)
 
-  if (response.ok) {
-    const categories = await response.json();
-    dispatch(loadCategoryIds(categories))
-  }
-};
+	if (response.ok) {
+		const categories = await response.json()
+		dispatch(loadCategoryIds(categories))
+	}
+}
 
 // GET all favorites
-export const getFavorites = () => async dispatch => {
-  const response = await fetch(`/api/events/favorites`);
+export const getFavorites = () => async (dispatch) => {
+	const response = await fetch(`/api/events/favorites`)
 
-  if (response.ok) {
-    const favorites = await response.json();
-    dispatch(loadFavorites(favorites))
-  }
-};
+	if (response.ok) {
+		const favorites = await response.json()
+		dispatch(loadFavorites(favorites))
+	}
+}
 
 // POST a favorite
-export const favoritedEvent = (data) => async dispatch => {
-  const eventId = data.id;
+export const favoritedEvent = (data) => async (dispatch) => {
+	const eventId = data.id
 
-  // Cross Site Request Forgeries Middleware
-  const response = await csrfFetch(`/api/events/${eventId}/favorited`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ eventId }),
-  });
+	// Cross Site Request Forgeries Middleware
+	const response = await csrfFetch(`/api/events/${eventId}/favorited`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({ eventId }),
+	})
 
-  if (response.ok) {
-    const event = await response.json();
-    dispatch(favorited(event));
-  }
-};
+	if (response.ok) {
+		const event = await response.json()
+		dispatch(favorited(event))
+	}
+}
 
 // DELETE a favorite
-export const unfavoritedEvent = (eventId) => async dispatch => {
-  const response = await csrfFetch(`/api/events/${eventId}/favorites`, {
-    method: 'DELETE',
-  });
+export const unfavoritedEvent = (eventId) => async (dispatch) => {
+	const response = await csrfFetch(`/api/events/${eventId}/favorites`, {
+		method: 'DELETE',
+	})
 
-  if (response.ok) {
-    const unfavorite = await response.json();
-    dispatch(unfavorited(unfavorite))
-  }
-};
-
+	if (response.ok) {
+		const unfavorite = await response.json()
+		dispatch(unfavorited(unfavorite))
+	}
+}
 
 /******************** Reducers **************************************************************/
 const initialState = {
-  events: [],
-  tickets: [],
-  favorites: [],
-  categories: [],
+	events: { categories: {} },
+	tickets: [],
+	favorites: [],
 }
 
 const eventsReducer = (state = initialState, action) => {
-  let newState;
+	let newState
 
-  switch (action.type) {
-    case LOAD_EVENTS: {
-      const allEvents = {};
-      action.events.forEach(event => {
-        allEvents[event.id] = event;
-      });
-      return {
-        ...allEvents,
-        ...state,
-        events: action.events,
-      }
-    }
-    case LOAD_TICKETS: {
-      const allTickets = {};
-      action.tickets.forEach(ticket => {
-        allTickets[ticket.id] = ticket;
-      });
-      return {
-        ...state,
-        tickets: action.tickets,
-      }
-    }
-    case LOAD_FAVORITES: {
-      const allFavorites = {};
-      action.favorites.forEach(favorite => {
-        allFavorites[favorite.id] = favorite;
-      });
-      return {
-        ...state,
-        favorites: action.favorites,
-      }
-    }
-    case LOAD_CATEGORIES: {
-      const allCategoryIds = {};
-      action.categories.forEach(category => {
-        allCategoryIds[category.id] = category;
-      });
-      return {
-        ...state,
-        categories: action.categories,
-      }
-    }
-    case FAVORITED: {
-      newState = { ...state }
-      const newFavorite = [...newState.favorites, action.event]
-      newState.favorites = newFavorite;
-      return newState;
-    }
-    case UNFAVORITED: {
-      newState = { ...state }
-      const newFavorite = newState.favorites.filter(
-        (event) => event.id.toString() !== action.eventId.toString());
+	switch (action.type) {
+		case LOAD_EVENTS: {
+			const allEvents = {}
+			const allCategories = {}
+			action.events.events.forEach((event) => {
+				console.log(event)
+				allEvents[event.id] = event
+			})
+			action.events.categories.forEach((category) => {
+				allCategories[category.id] = category
+			})
+			return {
+				...state,
+				events: { ...allEvents, categories: { ...allCategories } },
+			}
+		}
+		case LOAD_TICKETS: {
+			const allTickets = {}
+			action.tickets.forEach((ticket) => {
+				allTickets[ticket.id] = ticket
+			})
+			return {
+				...state,
+				tickets: action.tickets,
+			}
+		}
+		case LOAD_FAVORITES: {
+			const allFavorites = {}
+			action.favorites.forEach((favorite) => {
+				allFavorites[favorite.id] = favorite
+			})
+			return {
+				...state,
+				favorites: action.favorites,
+			}
+		}
+		case LOAD_CATEGORIES: {
+			const allCategoryIds = {}
+			action.categories.forEach((category) => {
+				allCategoryIds[category.id] = category
+			})
+			return {
+				...state,
+				categories: action.categories,
+			}
+		}
+		case FAVORITED: {
+			newState = { ...state }
+			const newFavorite = [...newState.favorites, action.event]
+			newState.favorites = newFavorite
+			return newState
+		}
+		case UNFAVORITED: {
+			newState = { ...state }
+			const newFavorite = newState.favorites.filter(
+				(event) => event.id.toString() !== action.eventId.toString()
+			)
 
-      newState.favorites = newFavorite;
-      return newState;
-    }
+			newState.favorites = newFavorite
+			return newState
+		}
 
-    default:
-      return state;
-  }
+		default:
+			return state
+	}
 }
 
-export default eventsReducer;
+export default eventsReducer
