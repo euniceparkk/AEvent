@@ -11,7 +11,7 @@ import './CategoryEvents.css'
 
 function CategoryEvents({ categoryEventId }) {
 	// const { id } = useParams();
-	const dispatch = useDispatch()
+	// const dispatch = useDispatch()
 
 	// useEffect(() => {
 	// 	dispatch(getFavorites())

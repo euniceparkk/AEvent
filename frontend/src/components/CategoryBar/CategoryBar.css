@@ -8,13 +8,13 @@ h1{
   justify-content: flex-start;
   padding: 5px;
   /* margin-right: 10px; */
-}
+} 
 
 .category-bar {
   border: 2px orange solid;
   padding: 5px;
-  display: flex;
-  justify-content: flex-start;
+  /* display: flex; */
+  /* justify-content: flex-start; */
   height: 100px;
   align-items: center;
 }

@@ -1,6 +1,6 @@
-/* .home-page__wrapper{
+.home-page__wrapper{
   display: grid;
   height: 2000px;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(30, 1fr)
-} */
+}
