@@ -559,6 +559,11 @@ const ticketsData = [
   { eventId: 7, userId: 16 },
   { eventId: 8, userId: 17 },
   { eventId: 2, userId: 18 },
+
+  { eventId: 1, userId: 1 },
+  { eventId: 2, userId: 1 },
+  { eventId: 3, userId: 1 },
+  { eventId: 4, userId: 1 },
 ];
 
 const favoritesData = [
@@ -571,6 +576,11 @@ const favoritesData = [
   { eventId: 7, userId: 16 },
   { eventId: 8, userId: 17 },
   { eventId: 2, userId: 18 },
+
+  { eventId: 1, userId: 1 },
+  { eventId: 2, userId: 1 },
+  { eventId: 3, userId: 1 },
+  { eventId: 4, userId: 1 },
 ];
 
 module.exports = {

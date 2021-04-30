@@ -46,6 +46,12 @@ module.exports = (sequelize, DataTypes) => {
     Event.belongsTo(models.Category, { foreignKey: 'categoryId' });
     Event.hasMany(models.Ticket, { foreignKey: 'eventId' });
     // Event.belongsTo(models.User, { foreignKey: 'userHostId' });
+    Event.belongsToMany(models.User, {
+      through: 'Favorite',
+      otherKey: 'userId',
+      foreignKey: 'eventId',
+    });
+    // Event.hasMany(models.Favorite, { foreignKey: 'eventId' });
 
     Event.belongsToMany(models.User, {
       through: 'Ticket',

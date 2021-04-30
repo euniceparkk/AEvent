@@ -5,78 +5,192 @@
 }
 
 .nav-bar__container{
-  /* border: 3px solid red; */
-  /* height: 100px;
-  display: flex;
-  justify-content: space-around; */
+  /* border: 3px solid black; */
+  border-bottom: 1px solid rgb(228, 228, 228);
+  height: 55px;
+  
   display: grid;
-  /* position: fixed; */
-  width: 100%;
-  height: 3em;
-  box-shadow: 2px 2px 2px 2px rgba(750, 70, 0, 0.6);
+  grid-template-columns: repeat(14, 1fr);
+  grid-template-rows: 1fr;
+  /* overflow: hidden; */
+  position: fixed;
+  background-color: white;
 
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(4, 1fr);
 }
 
 .nav-bar__logo-link {
-  grid-column: 2/3;
-  grid-row: 1/4;
+  /* border: 3px solid blue; */
+  grid-column: 1/3;
+  height: 50px;
+  width: 200px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .home-logo__image{
   /* border: 3px solid red; */
-  height: 60px;
-  padding-bottom: 15px;
+  width: 120px;
+  height: 28px;
+  padding: 15px;
+  margin-left: 15px;
   position: relative;
   float: left;
 }
 
+.nav-bar__search-icon {
+  /* border: 3px solid red; */
 
+  grid-column: 3/4;
+  /* height: 20px; */
+  /* width: 20px; */
+  font-size: 25px;
+  height: 55px;
 
-.nav-bar__search{
-  grid-column: 4/9;
-  grid-row: 2/4;
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.nav-bar__search-icon {
-  grid-column: 2/4;
-  grid-row: 1/3;
-  height: 20px;
-  width: 20px;
-  font-size: 25px;
+.fa-search{
+  height: 30px;
+  width: 30px;
+}
+
+.nav-bar__search-container{
+  /* border: 3px solid red; */
+  grid-column: 4/9;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-bar{
-  width: 400px;
-  border-radius: 8px;
-  padding-left: 15px;
+  /* border-radius: 8px; */
+
+  width: 510px;
+  /* padding-left: 15px; */
   background-color: #F7F3F3;
   border: .5px solid white;
+  height: 35px;
 }
 
 
-.nav-bar__icons{
+.session-links{
+  /* border: 3px solid blue; */
+
+  grid-column: 10/15;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  height: 50px;
+}
+
+.nav-fav__container{
+  /* border: 3px solid blue; */
+  grid-column: 1/2;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-tic__container{
+  /* border: 3px solid red; */
+  grid-column: 2/3;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-favorite{
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.link-ticket{
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.fav-img{
+  height: 30px;
+  width: 30px;
+}
+
+.tic-img{
+  height: 30px;
+  width: 30px;
+}
+
+
+
+
+
+
+.nav-prof__container{
+  /* grid-column: 13/14; */
+  grid-column: 3/6;
+  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+}
+
+.user-email{
+  /* border: 3px solid red; */
+  grid-column: 1/3;
+}
+
+.email-text{
+  display: flex;
+  justify-content: center;
+  color: gray;
+  font-size: 15px;
+}
+
+.profile-btn__container{
+  grid-column: 3/4;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.profile-btn{
+  border: .5px solid white;
+  border-radius: 50px;
+  /* position: absolute; */
+  font-size: 25px;
+  height: 30px;
+  width: 30px;
+  /* grid-column: 13/14; */
+  /* height: 100px; */
+  /* width: 100px; */
+}
+
+/* .nav-bar__icons{
   grid-column: 9/11;
   grid-row: 2/3;
   font-size: 25px;
   display: flex;
   justify-content: space-around;
-}
+} */
 
-.session-links{
-  /* border: 3px solid red; */
+/* .session-links{
+  border: 3px solid red;
   grid-column: 11/13;
   grid-row: 2/3;
   font-size: 25px;
   display: flex;
   justify-content: center;
-}
+} */
 
 
 /* .home-logo__image{
@@ -90,21 +204,21 @@
   height: 40px;
 } */
 
-.profile-btn{
-  border: .5px solid white;
-  background-color: white;
-  border-radius: 50px;
-  position: absolute;
-  font-size: 25px;
-}
+
 
 .profile-dropdown {
-  position: absolute;
+  /* position: absolute; */
   background-color: white;
   list-style-type: none;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 15px;
+  margin: 0px;
+  /* border-radius: 10px; */
   box-shadow: 0px 0px 10px rgb(190, 190, 190);
   z-index: 1;
 
+}
+
+.drop-item {
+  /* opacity: 0; */
+  transform-origin: top center;
 }

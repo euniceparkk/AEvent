@@ -23,3 +23,11 @@ export const numDate = (num) => {
   const number = day.split(' ')[2];
   return `${number}`;
 }
+
+export const monNumDate = (monNum) => {
+  const date = new Date(monNum);
+  const day = date.toDateString();
+  const month = day.split(' ')[1];
+  const number = day.split(' ')[2];
+  return `${month} ${number}`;
+}

@@ -19,7 +19,7 @@
 /* Right small-div */
 .home-banner__image-div {
   /* border: 4px red solid; */
-
+  background-image: url(https://aevent-project.s3.amazonaws.com/0-home.jpg);
   grid-column: 7/12;
   grid-row: 2/6;
 }

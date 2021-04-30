@@ -74,8 +74,8 @@ export const getOneEvent = (id) => async (dispatch) => {
 }
 
 // GET all tickets
-export const getTickets = () => async (dispatch) => {
-	const response = await fetch(`/api/events/tickets`)
+export const getTickets = (id) => async (dispatch) => {
+	const response = await fetch(`/api/events/tickets/${id}`)
 
 	if (response.ok) {
 		const tickets = await response.json()
@@ -94,8 +94,8 @@ export const getCategoryIds = () => async (dispatch) => {
 }
 
 // GET all favorites
-export const getFavorites = () => async (dispatch) => {
-	const response = await fetch(`/api/events/favorites`)
+export const getFavorites = (id) => async (dispatch) => {
+	const response = await fetch(`/api/events/favorites/${id}`)
 
 	if (response.ok) {
 		const favorites = await response.json()
@@ -182,6 +182,7 @@ const eventsReducer = (state = initialState, action) => {
 		case LOAD_TICKETS: {
 			const allTickets = {}
 			action.tickets.forEach((ticket) => {
+				// console.log('ticketId', ticket.id)
 				allTickets[ticket.id] = ticket
 			})
 			return {

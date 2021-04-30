@@ -7,7 +7,7 @@ function HomeBanner() {
     <div className='home-banner__container-big'>
 
       <div className='home-banner__image-div'>
-        <img alt='home-banner' className='home-banner__image' src='https://aevent-project.s3.amazonaws.com/0-home.jpg' />
+        {/* <img alt='home-banner' className='home-banner__image' src='https://aevent-project.s3.amazonaws.com/0-home.jpg' /> */}
       </div>
 
       <div className='home-banner__container-small'>

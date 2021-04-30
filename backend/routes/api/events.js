@@ -25,27 +25,29 @@ router.get(
 
 // GET all User's tickets
 router.get(
-	'/tickets',
-	restoreUser,
+	'/tickets/:id',
+	requireAuth,
 	asyncHandler(async (req, res) => {
-		const { user } = req
+		const id = req.params.id;
 		const tickets = await Ticket.findAll({
-			where: { userId: user.id },
+			where: { userId: id },
 			include: [Event],
 		})
 		const confirmedTickets = tickets.map((conTicket) => conTicket.Event)
 		return res.json(confirmedTickets)
+		// console.log('user', id)
 	})
 )
 
 // GET all User's favorites
 router.get(
-	'/favorites',
-	restoreUser,
+	'/favorites/:id',
+	requireAuth,
 	asyncHandler(async (req, res) => {
-		const { user } = req
+		const id = req.params.id;
+		// const { user } = req
 		const favorites = await Favorite.findAll({
-			where: { userId: user.id },
+			where: { userId: id },
 			include: [Event],
 		})
 		const userFav = favorites.map((fav) => fav.Event)
