@@ -1,14 +1,122 @@
-.event-banner__container{
-  border: 4px red solid;
-  grid-column: 1/13;
-  grid-row: 1/9;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet');
+* {
+  font-family: 'Open Sans', sans-serif;
 }
-.event-banner__img{
-  height: 350px;
-  width: 350px;
+/* @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+* {
+  font-family: 'Lato', sans-serif;
+} */
+
+.event-banner__container{
+  /* border: 4px red solid; */
+  grid-column: 3/11;
+  grid-row: 1/8;
+
+  /* ADD MARGIN LATER!!  */
+  /* margin: 35px 0px 0px 5px;  */
+  /* margin-top: 5px; */
+  padding-top: 5px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
 }
 
-.event-banner__img-blur{
-  height: 350px;
-  width: 350px;
+.event-banner__img-div{
+  /* border: 2px blue solid; */
+  grid-column: 1/9;
+  grid-row: 1/6;
+
+}
+.event-banner__img {
+  height: 390px;
+  width: 680px;
+}
+
+
+.event-banner__container-right{
+  /* border: 2px green solid; */
+  grid-column: 9/13;
+  grid-row: 1/6;
+
+  background-color: #F7F3F3;
+
+  /* padding: 10px;
+  margin: 5px; */
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.event-banner__mon{
+  /* border: 2px green solid; */
+
+  grid-column: 1/3;
+  grid-row: 1/2;
+  text-transform: uppercase;
+  padding: 0px 25px;
+  font-size: 16px;
+}
+
+.event-banner__num{
+  /* border: 2px green solid; */
+  grid-column: 1/3;
+  grid-row: 2/3;
+  padding: 0px 25px;
+  font-size: 18px;
+}
+
+.event-banner__title{
+  /* border: 2px green solid; */
+  grid-column: 1/7;
+  grid-row: 3/4;
+  font-size: 22px;
+  padding: 0px 25px;
+}
+
+.event-banner__host{
+  /* border: 4px green solid; */
+  grid-column: 1/7;
+  grid-row: 4/5;
+  padding: 0px 25px;
+  font-size: 15px;
+  color:rgb(143, 143, 143);
+  font-weight: normal;
+  letter-spacing: .07em;
+}
+
+.event-banner__price{
+  /* border: 4px green solid; */
+  grid-column: 1/7;
+  grid-row: 6/7;
+  padding: 0px 25px;
+  font-size: 15px;
+  letter-spacing: .05em;
+}
+
+
+.event-banner__container-bar{
+  /* border: 4px orange solid; */
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+
+  grid-column: 1/13;
+  grid-row: 6/7;
+  background-color: white;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.event-banner__button{
+  grid-column: 9/13;
+  /* padding: 15px; */
+  margin: 14px 17px;
+  border-radius: 5px;
+  border-style: none;
+  background-color: #144BCC;
+  color: white;
+  letter-spacing: .09em;
+  font-size: 13px;
+  
 }

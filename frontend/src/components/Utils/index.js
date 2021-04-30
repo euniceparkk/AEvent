@@ -10,10 +10,16 @@ export const newDate = (dateData) => {
   return `${weekday}, ${month} ${number}, ${hour}:00 ${period}`;
 }
 
-export const monthDate = (data) => {
-  const date = new Date(data);
+export const monthDate = (mon) => {
+  const date = new Date(mon);
   const day = date.toDateString();
   const month = day.split(' ')[1];
+  return `${month}`;
+}
+
+export const numDate = (num) => {
+  const date = new Date(num);
+  const day = date.toDateString();
   const number = day.split(' ')[2];
-  return `${month} ${number}`;
+  return `${number}`;
 }

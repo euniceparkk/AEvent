@@ -2,5 +2,24 @@
   display: grid;
   height: 2000px;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(30, 1fr)
+  grid-template-rows: repeat(30, 1fr);
 }
+
+.event-banner__img-blur{
+  margin-top: 15px;
+  grid-column: 1/13;
+  grid-row: 1/6;
+  height: 550px;
+  width: 1525px;
+  filter: blur(9px) grayscale(40%);
+  z-index: -1;
+  position: absolute;
+}
+
+.background-div{
+  background-color: #FFFBFF;
+  grid-column: 1/13;
+  grid-row: 9/30;
+  padding: 10px;
+}
+

@@ -28,6 +28,8 @@ function EventPage() {
 
   return (
     <div className='event-page__wrapper'>
+      <img alt='event-img' className='event-banner__img-blur' src={event.image}></img>
+      <div className='background-div'></div>
       <EventBanner event={event} />
       <EventDetails event={event} />
     </div>
