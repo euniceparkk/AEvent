@@ -23,15 +23,15 @@ function CategoryEvents({ categoryEventId }) {
 	const events = useSelector((state) => Object.values(state.events.events))
 
 	const categoryEvents = events.filter((event) => {
-		console.log('cat id, ', event.categoryId)
-		console.log('cat event id, ', Number(categoryEventId))
+		// console.log('cat id, ', event.categoryId)
+		// console.log('cat event id, ', Number(categoryEventId))
 		if (event.categoryId === Number(categoryEventId)) {
 			return event
 		}
 	})
 
 	// const oneEvent = events[id];
-	console.log('category events on click', categoryEvents)
+	// console.log('category events on click', categoryEvents)
 
 	return (
 		<div className='events-container'>

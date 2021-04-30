@@ -6,27 +6,27 @@ import './OneEvent.css'
 // import { favoritedEvent, unfavoritedEvent } from '../../store/events';
 
 function OneEvent({ user, event, dateTime, favorites }) {
-	// const dispatch = useDispatch();
-	// const addFavorite = (eventId) => dispatch(favoritedEvent(eventId));
-	// const deleteFavorite = (eventId) => dispatch(unfavoritedEvent(eventId));
-	console.log(event)
+  // const dispatch = useDispatch();
+  // const addFavorite = (eventId) => dispatch(favoritedEvent(eventId));
+  // const deleteFavorite = (eventId) => dispatch(unfavoritedEvent(eventId));
+  // console.log(event)
 
-	return (
-		<>
-			<div>{event.title}</div>
-			<div className='single-event'>
-				<div className='single-event__link'>
-					<div single-event__image-container>
-						<img alt='one-event' className='single-event__image' src={event.image} />
-					</div>
-					<div className='single-event__details'>
-						<p className='single-event__title'>{event.title}</p>
-						<p className='single-event__date'>{dateTime}</p>
-					</div>
-				</div>
-			</div>
-		</>
-	)
+  return (
+    <>
+      <div className='single-event__container'>
+        <NavLink className='single-event__img-container' to={`/events/${event.id}`}>
+          <img alt='one-event' className='single-event__img' src={event.image} />
+        </NavLink>
+        <div className='single-event__details'>
+          {/* <NavLink to={`/events/${event.id}`}> */}
+          <p className='single-event__title'>{event.title}</p>
+          {/* </NavLink> */}
+          <p className='single-event__date'>{dateTime}</p>
+        </div>
+      </div>
+    </>
+  )
 }
+
 
 export default OneEvent

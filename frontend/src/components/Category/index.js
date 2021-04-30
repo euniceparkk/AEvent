@@ -9,9 +9,9 @@ function Category({ categoryName, categoryId, handleCategoryChange }) {
 	return (
 		<>
 			<div
+				className='category-bar__link'
 				onClick={handleCategoryChange}
 				id={categoryId}
-				className='category-bar__link'
 			>
 				<h3 className='category' id={categoryId} onClick={handleCategoryChange}>
 					{categoryName}

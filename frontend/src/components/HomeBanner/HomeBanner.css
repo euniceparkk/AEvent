@@ -6,9 +6,10 @@
 /* HomeBanner big div*/
 .home-banner__container-big {
   grid-column: 1/13;
-  grid-row: 1/11;
-  border: 4px red solid;
-  
+  grid-row: 1/9;
+  /* border: 4px red solid; */
+  margin: 5px;
+
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(6, 1fr);
@@ -19,13 +20,13 @@
 .home-banner__image-div {
   /* border: 4px red solid; */
 
-  grid-column: 6/12;
+  grid-column: 7/12;
   grid-row: 2/6;
 }
 
 .home-banner__image{
-  width: 750px;
-  height: 395px;
+  width: 630px;
+  height: 350px;
   position: absolute;
 }
 
@@ -33,29 +34,31 @@
 /* Left small div */
 .home-banner__container-small {
   /* border: 4px blue solid; */
-  grid-column: 1/6;
+  grid-column: 1/7;
   grid-row: 2/6;
 
   /* padding: 5px;
   margin: 5px; */
 
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
 }
+
+
 
 /* INSIDE left small div */
 .container-small__fill{
   background-color: #F7F3F3;
-  grid-column: 2/7;
+  grid-column: 3/9;
   grid-row: 2/8;
 }
 
 .container-small__div{
   /* border: 4px purple solid; */
-  grid-column: 1/7;
+  grid-column: 1/9;
   grid-row: 3/7;
-  padding: 0px 50px;
+  padding: 0px 145px;
   
   display: grid;
   grid-template-columns: repeat(6, 1fr);

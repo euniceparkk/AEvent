@@ -7,11 +7,17 @@ const LOAD_FAVORITES = 'events/LOAD_FAVORITES'
 const FAVORITED = 'events/FAVORITED'
 const UNFAVORITED = 'events/UNFAVORITED'
 const LOAD_CATEGORIES = 'events/LOAD_CATEGORIES'
+const LOAD_EVENT = 'events/LOAD_EVENT'
 
 /************* Action Creators **************************************************************/
 const loadEvents = (events) => ({
 	type: LOAD_EVENTS,
 	events,
+})
+
+const loadOneEvent = (event) => ({
+	type: LOAD_EVENT,
+	event,
 })
 
 const loadTickets = (tickets) => ({
@@ -48,6 +54,16 @@ export const getEvents = () => async (dispatch) => {
 		const events = await response.json()
 		console.log('events', events)
 		dispatch(loadEvents(events))
+	}
+}
+
+// GET one event
+export const getOneEvent = (id) => async (dispatch) => {
+	const response = await csrfFetch(`/api/events/${id}`)
+
+	if (response.ok) {
+		const event = await response.json()
+		dispatch(loadOneEvent(event))
 	}
 }
 
@@ -182,6 +198,14 @@ const eventsReducer = (state = initialState, action) => {
 
 			newState.favorites = newFavorite
 			return newState
+		}
+		case LOAD_EVENT: {
+			newState = { ...state }
+			const currentEvent = action.event
+			return {
+				...newState,
+				currentEvent: currentEvent
+			}
 		}
 
 		default:

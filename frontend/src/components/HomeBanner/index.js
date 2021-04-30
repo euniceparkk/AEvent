@@ -15,12 +15,10 @@ function HomeBanner() {
         <div className='container-small__div'>
 
           <div className='banner-h1__div'>
-            {/* <h1 className='banner-h1'>Discover the best</h1> */}
             Discover the best
           </div>
 
           <div className='banner-h2__div'>
-            {/* <h2 className='banner-h2'>events nationwide</h2> */}
             events nationwide
           </div>
 

@@ -1,0 +1,14 @@
+.event-banner__container{
+  border: 4px red solid;
+  grid-column: 1/13;
+  grid-row: 1/9;
+}
+.event-banner__img{
+  height: 350px;
+  width: 350px;
+}
+
+.event-banner__img-blur{
+  height: 350px;
+  width: 350px;
+}

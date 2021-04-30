@@ -6,6 +6,7 @@ import * as sessionActions from "./store/session";
 
 import Navigation from "./components/Navigation";
 import HomePage from './components/HomePage';
+import EventPage from "./components/EventPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +22,9 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <HomePage />
+          </Route>
+          <Route path='/events/:id'>
+            <EventPage />
           </Route>
           <Route>
             <h1>Page Not Found</h1>

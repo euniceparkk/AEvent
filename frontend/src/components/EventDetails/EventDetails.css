@@ -1,0 +1,5 @@
+.event-details__container{
+  border: 4px blue solid;
+  grid-column: 1/13;
+  grid-row: 9/15;
+}

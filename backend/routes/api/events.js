@@ -18,7 +18,7 @@ router.get(
 router.get(
 	'/:id',
 	asyncHandler(async function (req, res) {
-		const event = await db.Event.findOne(req.params.id)
+		const event = await Event.findByPk(req.params.id)
 		return res.json(event)
 	})
 )
