@@ -30,6 +30,20 @@ function SignupForm({ handleClick }) {
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
+  const demoSubmit = (e) => {
+    e.preventDefault();
+    // setCredential('demo')
+    // setPassword('password')
+    const credential = 'demo@user.io'
+    const password = 'password'
+    return dispatch(sessionActions.login({ credential, password }))
+      .catch(async (res) => {
+        // const data = await res.json();
+        const data = await res.json();
+        // console.log(data)
+      })
+  };
+
   // // Validation for Signup Errors
   // const validate = (data) => {
   //   const errors = {};
@@ -103,8 +117,8 @@ function SignupForm({ handleClick }) {
             />
           </label>
           <button className='submit-btn' type="submit">Sign Up</button>
+          <button type='submit' className='demo-btn' onClick={demoSubmit}>Demo User</button>
         </form>
-        <button type='button' className='demo-btn' onClick={handleClick}>Demo User</button>
         <div className='other-div'>
           <button type='button' className='other-btn' onClick={handleClick}>Have an account?</button>
         </div>
