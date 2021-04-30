@@ -8,6 +8,7 @@ const FAVORITED = 'events/FAVORITED'
 const UNFAVORITED = 'events/UNFAVORITED'
 const LOAD_CATEGORIES = 'events/LOAD_CATEGORIES'
 const LOAD_EVENT = 'events/LOAD_EVENT'
+const REGISTER = 'events/REGISTER'
 
 /************* Action Creators **************************************************************/
 const loadEvents = (events) => ({
@@ -43,6 +44,11 @@ const unfavorited = (eventId) => ({
 const loadCategoryIds = (categories) => ({
 	type: LOAD_CATEGORIES,
 	categories,
+})
+
+const register = (event) => ({
+	type: REGISTER,
+	event,
 })
 
 /******************** Thunks **************************************************************/
@@ -94,6 +100,25 @@ export const getFavorites = () => async (dispatch) => {
 	if (response.ok) {
 		const favorites = await response.json()
 		dispatch(loadFavorites(favorites))
+	}
+}
+
+// POST a registration
+export const registerEvent = (data) => async (dispatch) => {
+	const eventId = data.id
+
+	// Cross Site Request Forgeries Middleware
+	const response = await csrfFetch(`/api/events/${eventId}/register`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({ eventId }),
+	});
+
+	if (response.ok) {
+		const event = await response.json()
+		dispatch(register(event))
 	}
 }
 
@@ -206,6 +231,12 @@ const eventsReducer = (state = initialState, action) => {
 				...newState,
 				currentEvent: currentEvent
 			}
+		}
+		case REGISTER: {
+			newState = { ...state }
+			const newTicket = [...newState.tickets, action.event]
+			newState.tickets = newTicket;
+			return newState;
 		}
 
 		default:

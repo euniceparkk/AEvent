@@ -118,5 +118,9 @@
   color: white;
   letter-spacing: .09em;
   font-size: 13px;
-  
+  cursor: pointer;
+}
+.event-banner__button:hover{
+  background-color: #205CE9;
+  transition-duration: 0.3s;
 }

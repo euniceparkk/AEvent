@@ -25,7 +25,6 @@ function EventPage() {
     return null;
   };
 
-
   return (
     <div className='event-page__wrapper'>
       <img alt='event-img' className='event-banner__img-blur' src={event.image}></img>

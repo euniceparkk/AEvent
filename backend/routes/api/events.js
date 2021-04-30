@@ -53,15 +53,29 @@ router.get(
 	})
 )
 
+// POST user registering for event
+router.post(
+	'/:id/register',
+	requireAuth,
+	asyncHandler(async (req, res) => {
+		const eventId = req.params.id;
+		const userId = req.user.id;
+
+		const registerEvent = await Ticket.create({ eventId, userId });
+		const event = await Event.findByPk(eventId);
+		res.json(event);
+	})
+)
+
 // POST User's favorite events
 router.post(
 	'/:id/favorited',
 	requireAuth,
 	asyncHandler(async (req, res) => {
-		const eventId = req.params.id
-		const userId = req.user.id
-		const favorited = await Favorite.create({ eventId, userId })
-		const event = await Event.findByPk(eventId)
+		const eventId = req.params.id;
+		const userId = req.user.id;
+		const favorited = await Favorite.create({ eventId, userId });
+		const event = await Event.findByPk(eventId);
 		res.json(event)
 	})
 )
@@ -71,8 +85,8 @@ router.delete(
 	'/:id/favorites',
 	requireAuth,
 	asyncHandler(async (req, res) => {
-		const eventId = req.params.id
-		const userId = req.user.id
+		const eventId = req.params.id;
+		const userId = req.user.id;
 		const unfavorite = await Favorite.findOne({ where: { eventId, userId } })
 		await unfavorite.destroy()
 
