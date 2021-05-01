@@ -17,10 +17,8 @@ function ProfilePage() {
   const allTickets = useSelector(state => state.events.tickets);
   const allFavorites = useSelector(state => state.events.favorites);
 
-  // const [userTicket, setUserTicket] = useState();
-  // const [userFav, setUserFav] = useState();
+  // const [content, setContent] = useState('');
 
-  // const 
   useEffect(() => {
     dispatch(getTickets(userId))
     dispatch(getFavorites(userId))
@@ -30,7 +28,6 @@ function ProfilePage() {
 
   console.log('tickets!!!', allTickets)
   console.log('favorites!!!', allFavorites)
-
 
   return (
     <>
