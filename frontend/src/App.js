@@ -29,10 +29,10 @@ function App() {
           <Route path='/events/:id'>
             <EventPage />
           </Route>
-          <Route path='/tickets'>
+          <Route path='/profile/tickets'>
             <TicketPage />
           </Route>
-          <Route path='/favorites'>
+          <Route path='/profile/favorites'>
             <FavoritePage />
           </Route>
           <Route>
