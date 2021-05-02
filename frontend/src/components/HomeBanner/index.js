@@ -23,9 +23,9 @@ function HomeBanner() {
           </div>
 
           <div className='banner-button__div'>
-            <NavLink to='/'>
+            <a href='#jump-bar'>
               <button className='banner-button'>Get Tickets ➤</button>
-            </NavLink>
+            </a>
           </div>
 
         </div>

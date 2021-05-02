@@ -74,13 +74,33 @@ router.post(
 // POST User's favorite events
 router.post(
 	'/:id/favorited',
-	requireAuth,
 	asyncHandler(async (req, res) => {
-		const eventId = req.params.id;
-		const userId = req.user.id;
-		const favorited = await Favorite.create({ eventId, userId });
-		const event = await Event.findByPk(eventId);
-		res.json(event)
+		const { eventId, userId } = req.body;
+		content = { eventId, userId };
+		const favorited = await Favorite.create(content);
+		return res.json(favorited);
+
+		// const eventId = req.params.id;
+		// const userId = req.user.id;
+		// const favorited = await Favorite.create({ eventId, userId });
+		// const event = await Event.findByPk(eventId);
+		// res.json(event)
+	})
+)
+
+// DELETE User's favorited event
+router.delete(
+	'/:id/favorites',
+	asyncHandler(async (req, res) => {
+		const { eventId, userId } = req.body;
+
+		const unfav = await Favorite.destroy({
+			where: {
+				eventId,
+				userId
+			}
+		});
+		res.json(unfav)
 	})
 )
 
@@ -99,18 +119,6 @@ router.post('/search', asyncHandler(async (req, res) => {
 }))
 
 
-// DELETE User's favorited event
-router.delete(
-	'/:id/favorites',
-	requireAuth,
-	asyncHandler(async (req, res) => {
-		const eventId = req.params.id;
-		const userId = req.user.id;
-		const unfavorite = await Favorite.findOne({ where: { eventId, userId } })
-		await unfavorite.destroy()
 
-		res.json(eventId)
-	})
-)
 
 module.exports = router

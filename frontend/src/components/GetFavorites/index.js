@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { deleteFavorites } from '../../store/events';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 import './GetFavorites.css'
 
-function GetFavorites({ title, date, host, price, image }) {
+function GetFavorites({ eventId, title, date, host, price, image, change }) {
+  const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user)
+  const userId = sessionUser.id
 
+  const deleteOneFav = () => {
+    dispatch(deleteFavorites({ eventId, userId }))
+    change();
+  }
+
+  // console.log('user id', favorite)
+  console.log('favoriteid', eventId)
   return (
     <div className='one-favorite__container'>
 
@@ -13,6 +25,7 @@ function GetFavorites({ title, date, host, price, image }) {
         <p className='date-text'>{date}</p>
         <p className='host-text'>{host}</p>
         <p className='price-text'>Starts at ${price}</p>
+        <button onClick={deleteOneFav}>delete</button>
       </div>
 
       <div className='favorite-image__container'>

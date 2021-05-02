@@ -104,11 +104,27 @@
 .link-favorite{
   font-size: 15px;
   text-decoration: none;
+  color: black;
+  padding-left: 6px;
+}
+
+.link-favorite:hover{
+  color: #F3712B;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .link-ticket{
   font-size: 15px;
   text-decoration: none;
+  color: black;
+  padding-left: 6px;
+}
+
+.link-ticket:hover{
+  color: #F3712B;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .fav-img{

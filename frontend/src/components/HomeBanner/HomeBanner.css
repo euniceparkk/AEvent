@@ -108,8 +108,10 @@
   display: inline-block;
   border-style: none;
   letter-spacing: .2em;
+  cursor: pointer;
 }
 
 .banner-button:hover{
-  border-color: rgb(214, 156, 118)
+  border-color: rgb(214, 156, 118);
+  background-color: #F3712B;
 }

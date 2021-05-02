@@ -38,7 +38,7 @@ function CategoryBar() {
   // Returning props to children components
   return (
     <>
-      <div className='category-bar__container'>
+      <div id='jump-bar' className='category-bar__container'>
         <div className='category-bar__h1-header'>Popular in ➤</div>
         <div className='category-bar'>
           {allCategories.map((category) => {

@@ -4,8 +4,11 @@ import { csrfFetch } from './csrf'
 const LOAD_EVENTS = 'events/LOAD_EVENTS'
 const LOAD_TICKETS = 'events/LOAD_TICKETS'
 const LOAD_FAVORITES = 'events/LOAD_FAVORITES'
-const FAVORITED = 'events/FAVORITED'
-const UNFAVORITED = 'events/UNFAVORITED'
+
+const ADD_FAVORITE = 'events/ADD_FAVORITE'
+
+const DELETE_FAVORITE = 'events/DELETE_FAVORITE'
+
 const LOAD_CATEGORIES = 'events/LOAD_CATEGORIES'
 const LOAD_EVENT = 'events/LOAD_EVENT'
 const REGISTER = 'events/REGISTER'
@@ -32,14 +35,14 @@ const loadFavorites = (favorites) => ({
 	favorites,
 })
 
-const favorited = (event) => ({
-	type: FAVORITED,
-	event,
+const addFavorite = (favorite) => ({
+	type: ADD_FAVORITE,
+	favorite,
 })
 
-const unfavorited = (eventId) => ({
-	type: UNFAVORITED,
-	eventId,
+const deleteFavorite = (favorite) => ({
+	type: DELETE_FAVORITE,
+	favorite,
 })
 
 const loadCategoryIds = (categories) => ({
@@ -129,8 +132,8 @@ export const registerEvent = (data) => async (dispatch) => {
 }
 
 // POST a favorite
-export const favoritedEvent = (data) => async (dispatch) => {
-	const eventId = data.id
+export const addFavorites = (data) => async (dispatch) => {
+	const { eventId, userId } = data;
 
 	// Cross Site Request Forgeries Middleware
 	const response = await csrfFetch(`/api/events/${eventId}/favorited`, {
@@ -138,13 +141,27 @@ export const favoritedEvent = (data) => async (dispatch) => {
 		headers: {
 			'Content-Type': 'application/json',
 		},
-		body: JSON.stringify({ eventId }),
+		body: JSON.stringify({ eventId, userId }),
 	})
 
-	if (response.ok) {
-		const event = await response.json()
-		dispatch(favorited(event))
-	}
+	if (!response.ok) throw response;
+	const favorite = await response.json();
+	dispatch(addFavorite(favorite))
+	return favorite;
+}
+
+// DELETE a favorite
+export const deleteFavorites = (data) => async (dispatch) => {
+	const { eventId, userId } = data;
+	const response = await csrfFetch(`/api/events/${eventId}/favorites`, {
+		method: 'DELETE',
+		body: JSON.stringify({ eventId, userId })
+	})
+
+	if (!response.ok) throw response;
+	const favorite = await response.json();
+	dispatch(deleteFavorite(favorite))
+	return favorite;
 }
 
 // POST a search
@@ -162,18 +179,6 @@ export const favoritedEvent = (data) => async (dispatch) => {
 // 		dispatch(loadSearch(term));
 // 	}
 // }
-
-// DELETE a favorite
-export const unfavoritedEvent = (eventId) => async (dispatch) => {
-	const response = await csrfFetch(`/api/events/${eventId}/favorites`, {
-		method: 'DELETE',
-	})
-
-	if (response.ok) {
-		const unfavorite = await response.json()
-		dispatch(unfavorited(unfavorite))
-	}
-}
 
 /******************** Reducers **************************************************************/
 const initialState = {
@@ -239,20 +244,18 @@ const eventsReducer = (state = initialState, action) => {
 				searchResults: action.searchResults
 			};
 		}
-		case FAVORITED: {
-			newState = { ...state }
-			const newFavorite = [...newState.favorites, action.event]
-			newState.favorites = newFavorite
-			return newState
+		case ADD_FAVORITE: {
+			const newState = {
+				...state,
+				[action.favorite.id]: action.favorite
+			}
+			return newState;
 		}
-		case UNFAVORITED: {
-			newState = { ...state }
-			const newFavorite = newState.favorites.filter(
-				(event) => event.id.toString() !== action.eventId.toString()
-			)
-
-			newState.favorites = newFavorite
-			return newState
+		case DELETE_FAVORITE: {
+			const newState = { ...state };
+			// console.log(newState)
+			delete newState[action.favorite];
+			return newState;
 		}
 		case LOAD_EVENT: {
 			newState = { ...state }
