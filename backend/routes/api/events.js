@@ -3,6 +3,7 @@ const router = express.Router()
 const asyncHandler = require('express-async-handler')
 const { restoreUser, requireAuth } = require('../../utils/auth')
 const { Category, Event, Favorite, Ticket, User } = require('../../db/models')
+const { Op } = require('sequelize');
 
 // GET all events
 router.get(
@@ -55,6 +56,7 @@ router.get(
 	})
 )
 
+
 // POST user registering for event
 router.post(
 	'/:id/register',
@@ -81,6 +83,21 @@ router.post(
 		res.json(event)
 	})
 )
+
+// POST 'search' for Event
+router.post('/search', asyncHandler(async (req, res) => {
+	const { query } = req.body
+	const results = await Event.findAll({
+		where: {
+			title: {
+				[Op.iLike]: `%${query}%`
+			}
+		}
+	})
+
+	res.json(results)
+}))
+
 
 // DELETE User's favorited event
 router.delete(

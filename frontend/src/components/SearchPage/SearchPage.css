@@ -1,0 +1,9 @@
+.search-bar{
+  /* border-radius: 8px; */
+
+  width: 510px;
+  /* padding-left: 15px; */
+  background-color: #F7F3F3;
+  border: .5px solid white;
+  height: 35px;
+}

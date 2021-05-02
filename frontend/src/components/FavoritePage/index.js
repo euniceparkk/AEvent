@@ -26,7 +26,8 @@ function FavoritePage() {
   //   component =
 
   // } else if ()
-  // console.log('favorites!!!', allFavorites)
+
+  console.log('favorites!!!', allFavorites)
 
   return (
     <>

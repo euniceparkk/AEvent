@@ -10,6 +10,7 @@ import EventPage from "./components/EventPage";
 import TicketPage from "./components/TicketPage";
 import FavoritePage from "./components/FavoritePage";
 import Footer from "./components/Footer";
+import SearchPage from "./components/SearchPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,9 @@ function App() {
         <Switch>
           <Route exact path='/'>
             <HomePage />
+          </Route>
+          <Route path='/events/search'>
+            <SearchPage />
           </Route>
           <Route path='/events/:id'>
             <EventPage />

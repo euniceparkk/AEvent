@@ -10,7 +10,7 @@ import CategoryEvents from '../CategoryEvents'
 import './CategoryBar.css'
 
 function CategoryBar() {
-  const [categoryEventId, setCategoryEventId] = useState(0)
+  const [categoryEventId, setCategoryEventId] = useState(1)
   // const sessionUser = useSelector(state => state.session.user);
   // const tickets = useSelector(state => state.events.tickets);
   // const favorites = useSelector(state => state.events.favorites);
@@ -34,11 +34,12 @@ function CategoryBar() {
     return null
   }
 
+  console.log('categoryEventId', categoryEventId)
   // Returning props to children components
   return (
     <>
       <div className='category-bar__container'>
-        <div className='category-bar__h1-header'>Popular in ➤ _______</div>
+        <div className='category-bar__h1-header'>Popular in ➤</div>
         <div className='category-bar'>
           {allCategories.map((category) => {
             return (

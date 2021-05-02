@@ -23,7 +23,7 @@ function GetTickets({ month, day, image, host, title, longDate, price }) {
         <div className='ticket-title'>{title}</div>
         <div className='ticket-long-date'>{longDate}</div>
         <div className='ticket-host'>by {host}</div>
-        <div className='ticket-price'>order placed ${price}</div>
+        <div className='ticket-price'>order placed @ ${price}</div>
       </div>
 
     </div>

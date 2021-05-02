@@ -9,6 +9,7 @@ const UNFAVORITED = 'events/UNFAVORITED'
 const LOAD_CATEGORIES = 'events/LOAD_CATEGORIES'
 const LOAD_EVENT = 'events/LOAD_EVENT'
 const REGISTER = 'events/REGISTER'
+const LOAD_SEARCH = 'events/LOAD_SEARCH'
 
 /************* Action Creators **************************************************************/
 const loadEvents = (events) => ({
@@ -51,6 +52,11 @@ const register = (event) => ({
 	event,
 })
 
+export const loadSearch = (searchResults) => ({
+	type: LOAD_SEARCH,
+	searchResults,
+})
+
 /******************** Thunks **************************************************************/
 // GET all events
 export const getEvents = () => async (dispatch) => {
@@ -58,7 +64,7 @@ export const getEvents = () => async (dispatch) => {
 
 	if (response.ok) {
 		const events = await response.json()
-		console.log('events', events)
+		// console.log('events', events)
 		dispatch(loadEvents(events))
 	}
 }
@@ -141,6 +147,22 @@ export const favoritedEvent = (data) => async (dispatch) => {
 	}
 }
 
+// POST a search
+// export const searchEvents = (payload) => async dispatch => {
+// 	const response = await csrfFetch(`/api/events/search`, {
+// 		method: 'POST',
+// 		headers: {
+// 			'Content-Type': 'application/json',
+// 		},
+// 		body: JSON.stringify({ payload }),
+// 	});
+
+// 	if (response.ok) {
+// 		const term = await response.json();
+// 		dispatch(loadSearch(term));
+// 	}
+// }
+
 // DELETE a favorite
 export const unfavoritedEvent = (eventId) => async (dispatch) => {
 	const response = await csrfFetch(`/api/events/${eventId}/favorites`, {
@@ -158,6 +180,7 @@ const initialState = {
 	events: { categories: {} },
 	tickets: [],
 	favorites: [],
+	searchResults: [],
 }
 
 const eventsReducer = (state = initialState, action) => {
@@ -209,6 +232,12 @@ const eventsReducer = (state = initialState, action) => {
 				...state,
 				categories: action.categories,
 			}
+		}
+		case LOAD_SEARCH: {
+			return {
+				...state,
+				searchResults: action.searchResults
+			};
 		}
 		case FAVORITED: {
 			newState = { ...state }

@@ -19,7 +19,7 @@ function EventPage() {
 
   const event = useSelector((state) => state.events.currentEvent)
 
-  console.log('events!!!', event);
+  // console.log('events!!!', event);
 
   if (!event) {
     return null;
