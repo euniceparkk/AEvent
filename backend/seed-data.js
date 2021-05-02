@@ -4,7 +4,7 @@ const eventsData = [
   {
     title: "Mother's Day Celebration - Apron Design & Cake Decorating",
     host: 'MERAKI on Move',
-    categoryId: 1,
+    categoryId: 6,
     image: "https://aevent-project.s3.amazonaws.com/1-mothersDay.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -18,7 +18,7 @@ const eventsData = [
   {
     title: "Mother's Day Make + Take Essential Oils Class",
     host: 'NJ Metta Yoga',
-    categoryId: 1,
+    categoryId: 6,
     image: "https://aevent-project.s3.amazonaws.com/2-mothersDay.jpg",
     description: faker.lorem.paragraphs(5),
     city: faker.address.city(),
@@ -32,7 +32,7 @@ const eventsData = [
   {
     title: "Mother's Day Brunch & Dinner",
     host: "Delta's Restaurant",
-    categoryId: 1,
+    categoryId: 6,
     image: "https://aevent-project.s3.amazonaws.com/3-mothersDay.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -46,7 +46,7 @@ const eventsData = [
   {
     title: "The Art of Bonsai: Cutting and Wiring",
     host: 'Calgo Gardens',
-    categoryId: 2,
+    categoryId: 8,
     image: "https://aevent-project.s3.amazonaws.com/4-free.jpg",
     description: faker.lorem.paragraphs(5),
     city: faker.address.city(),
@@ -60,7 +60,7 @@ const eventsData = [
   {
     title: "Free Cooking Class: Clean Eating Made Simple",
     host: "Nature's Corner Market",
-    categoryId: 2,
+    categoryId: 8,
     image: "https://aevent-project.s3.amazonaws.com/5-free.jpg",
     description: faker.lorem.paragraphs(5),
     city: faker.address.city(),
@@ -74,7 +74,7 @@ const eventsData = [
   {
     title: "ODESZA Bright Night Glow Concert",
     host: 'B&O Railroad Museum',
-    categoryId: 3,
+    categoryId: 1,
     image: "https://aevent-project.s3.amazonaws.com/6-music.jpg",
     description: faker.lorem.paragraphs(5),
     city: faker.address.city(),
@@ -88,7 +88,7 @@ const eventsData = [
   {
     title: "Cherub Tour",
     host: 'Camp City',
-    categoryId: 3,
+    categoryId: 1,
     image: "https://aevent-project.s3.amazonaws.com/7-music.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -102,7 +102,7 @@ const eventsData = [
   {
     title: "Frank Sinatra Concert Collection",
     host: 'Donna Cardillo',
-    categoryId: 3,
+    categoryId: 1,
     image: "https://aevent-project.s3.amazonaws.com/8-music.jpg",
     description: faker.lorem.paragraphs(5),
     city: faker.address.city(),
@@ -116,7 +116,7 @@ const eventsData = [
   {
     title: "One Day of Electronic Dance Music",
     host: 'BB&T',
-    categoryId: 3,
+    categoryId: 1,
     image: "https://aevent-project.s3.amazonaws.com/9-music.jpg",
     description: faker.lorem.paragraphs(5),
     city: faker.address.city(),
@@ -130,7 +130,7 @@ const eventsData = [
   {
     title: "The Billy Joel Rendition",
     host: 'Trevor Hall',
-    categoryId: 3,
+    categoryId: 1,
     image: "https://aevent-project.s3.amazonaws.com/10-music.jpg",
     description: faker.lorem.paragraphs(5),
     city: faker.address.city(),
@@ -144,7 +144,7 @@ const eventsData = [
   {
     title: "Tomorrowland 2021",
     host: "Belgian Electronic",
-    categoryId: 4,
+    categoryId: 3,
     image: "https://aevent-project.s3.amazonaws.com/11-music.jpg",
     description: faker.lorem.paragraphs(6),
     city: faker.address.city(),
@@ -158,7 +158,7 @@ const eventsData = [
   {
     title: "EDC Las Vegas 2021",
     host: "Nevada Venue",
-    categoryId: 4,
+    categoryId: 3,
     image: "https://aevent-project.s3.amazonaws.com/12-music.jpg",
     description: faker.lorem.paragraphs(5),
     city: faker.address.city(),
@@ -172,7 +172,7 @@ const eventsData = [
   {
     title: "Lollapalooza 2021",
     host: "The Windy City",
-    categoryId: 4,
+    categoryId: 3,
     image: "https://aevent-project.s3.amazonaws.com/13-music.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -186,7 +186,7 @@ const eventsData = [
   {
     title: "Ultra Miami Music Festival",
     host: "Delaware County",
-    categoryId: 4,
+    categoryId: 3,
     image: "https://aevent-project.s3.amazonaws.com/14-music.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -200,7 +200,7 @@ const eventsData = [
   {
     title: "FLOAT FEST",
     host: "San Marcos TX Venue",
-    categoryId: 4,
+    categoryId: 3,
     image: "https://aevent-project.s3.amazonaws.com/15-music.jpg",
     description: faker.lorem.paragraphs(5),
     city: faker.address.city(),
@@ -214,7 +214,7 @@ const eventsData = [
   {
     title: "Electric Forest Festival",
     host: "Billy Kimber Stadium",
-    categoryId: 4,
+    categoryId: 3,
     image: "https://aevent-project.s3.amazonaws.com/16-music.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -228,7 +228,7 @@ const eventsData = [
   {
     title: "Sushi Making 101",
     host: "Soule' Culinary Art Studio",
-    categoryId: 5,
+    categoryId: 2,
     image: "https://aevent-project.s3.amazonaws.com/17-food.jpg",
     description: faker.lorem.paragraphs(5),
     city: faker.address.city(),
@@ -242,7 +242,7 @@ const eventsData = [
   {
     title: "Crawfish Boil Festival",
     host: 'Long Wharf Park',
-    categoryId: 5,
+    categoryId: 2,
     image: "https://aevent-project.s3.amazonaws.com/18-food.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -256,7 +256,7 @@ const eventsData = [
   {
     title: "Cocktails and Wine: 2nd Street",
     host: 'Peter Station',
-    categoryId: 5,
+    categoryId: 2,
     image: "https://aevent-project.s3.amazonaws.com/19-food.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -270,7 +270,7 @@ const eventsData = [
   {
     title: "Food Truck Craze: Spring Edition",
     host: 'Ridge Ave',
-    categoryId: 5,
+    categoryId: 2,
     image: "https://aevent-project.s3.amazonaws.com/20-food.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -284,7 +284,7 @@ const eventsData = [
   {
     title: "Happy Hour Historic Food Tour",
     host: 'Passyunk Corp.',
-    categoryId: 5,
+    categoryId: 2,
     image: "https://aevent-project.s3.amazonaws.com/21-food.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -298,7 +298,7 @@ const eventsData = [
   {
     title: "Chef's Tasting Brunch",
     host: 'Catering Company',
-    categoryId: 5,
+    categoryId: 2,
     image: "https://aevent-project.s3.amazonaws.com/22-food.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -312,7 +312,7 @@ const eventsData = [
   {
     title: "Brunch in Dallasbasas",
     host: 'Mesa Grill',
-    categoryId: 5,
+    categoryId: 2,
     image: "https://aevent-project.s3.amazonaws.com/23-food.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -326,7 +326,7 @@ const eventsData = [
   {
     title: "120th Annual Student Exhibition Preview",
     host: 'Academy of Fine Arts',
-    categoryId: 6,
+    categoryId: 4,
     image: "https://aevent-project.s3.amazonaws.com/24-art.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -340,7 +340,7 @@ const eventsData = [
   {
     title: "Manayunk Arts Festival",
     host: 'Manayunk Development Corporation',
-    categoryId: 6,
+    categoryId: 4,
     image: "https://aevent-project.s3.amazonaws.com/25-art.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -354,7 +354,7 @@ const eventsData = [
   {
     title: "The Art of Looking (virtual)",
     host: 'Woodmere Art Museum',
-    categoryId: 6,
+    categoryId: 4,
     image: "https://aevent-project.s3.amazonaws.com/26-art.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -368,7 +368,7 @@ const eventsData = [
   {
     title: "Spring Art Expo",
     host: 'Learning Hub',
-    categoryId: 6,
+    categoryId: 4,
     image: "https://aevent-project.s3.amazonaws.com/27-art.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -382,7 +382,7 @@ const eventsData = [
   {
     title: "KIDZ BOP Dance Along",
     host: 'Blip Merriam Theater',
-    categoryId: 7,
+    categoryId: 5,
     image: "https://aevent-project.s3.amazonaws.com/28-fam.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -396,7 +396,7 @@ const eventsData = [
   {
     title: "Family Art & Storytelling",
     host: 'Woodmere Museum',
-    categoryId: 7,
+    categoryId: 5,
     image: "https://aevent-project.s3.amazonaws.com/29-fam.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -410,7 +410,7 @@ const eventsData = [
   {
     title: '"Camp" Weekend for Youth',
     host: 'YMCA',
-    categoryId: 7,
+    categoryId: 5,
     image: "https://aevent-project.s3.amazonaws.com/30-fam.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -424,7 +424,7 @@ const eventsData = [
   {
     title: "Family Painting Workshop",
     host: 'Suprising Color',
-    categoryId: 7,
+    categoryId: 5,
     image: "https://aevent-project.s3.amazonaws.com/31-fam.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -438,7 +438,7 @@ const eventsData = [
   {
     title: "Outdoor Pre-K Storytime",
     host: 'Cherry Street Pier',
-    categoryId: 7,
+    categoryId: 5,
     image: "https://aevent-project.s3.amazonaws.com/32-fam.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -452,7 +452,7 @@ const eventsData = [
   {
     title: "Family Game Night",
     host: 'Charles Santore Library',
-    categoryId: 7,
+    categoryId: 5,
     image: "https://aevent-project.s3.amazonaws.com/33-fam.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -466,7 +466,7 @@ const eventsData = [
   {
     title: "Evening of NYC Songs and Stories",
     host: 'Scottish Rite Auditorium',
-    categoryId: 8,
+    categoryId: 7,
     image: "https://aevent-project.s3.amazonaws.com/34-onl.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -480,7 +480,7 @@ const eventsData = [
   {
     title: "Jackbox Comedy Night",
     host: 'Mancuso Show Management',
-    categoryId: 8,
+    categoryId: 7,
     image: "https://aevent-project.s3.amazonaws.com/35-onl.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -494,7 +494,7 @@ const eventsData = [
   {
     title: "Preview: Coding Boot-Camp",
     host: 'App Academy',
-    categoryId: 8,
+    categoryId: 7,
     image: "https://aevent-project.s3.amazonaws.com/36-onl.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -508,7 +508,7 @@ const eventsData = [
   {
     title: "Zoom Open Mic-Stand Up",
     host: 'DiGi Corp.',
-    categoryId: 8,
+    categoryId: 7,
     image: "https://aevent-project.s3.amazonaws.com/37-onl.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -522,7 +522,7 @@ const eventsData = [
   {
     title: "Reality Theif's Magic Show",
     host: 'Hello',
-    categoryId: 8,
+    categoryId: 7,
     image: "https://aevent-project.s3.amazonaws.com/38-onl.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -536,7 +536,7 @@ const eventsData = [
   {
     title: "Let's Sing (Online)!",
     host: 'Clock Work Rally',
-    categoryId: 8,
+    categoryId: 7,
     image: "https://aevent-project.s3.amazonaws.com/39-onl.jpg",
     description: faker.lorem.paragraphs(4),
     city: faker.address.city(),
@@ -560,10 +560,9 @@ const ticketsData = [
   { eventId: 8, userId: 17 },
   { eventId: 2, userId: 18 },
 
-  { eventId: 1, userId: 1 },
-  { eventId: 2, userId: 1 },
-  { eventId: 3, userId: 1 },
-  { eventId: 4, userId: 1 },
+  { eventId: 8, userId: 1 },
+  { eventId: 25, userId: 1 },
+  { eventId: 18, userId: 1 },
 ];
 
 const favoritesData = [
@@ -577,10 +576,12 @@ const favoritesData = [
   { eventId: 8, userId: 17 },
   { eventId: 2, userId: 18 },
 
-  { eventId: 1, userId: 1 },
-  { eventId: 2, userId: 1 },
-  { eventId: 3, userId: 1 },
-  { eventId: 4, userId: 1 },
+  { eventId: 36, userId: 1 },
+  { eventId: 15, userId: 1 },
+  { eventId: 5, userId: 1 },
+  { eventId: 19, userId: 1 },
+  { eventId: 20, userId: 1 },
+
 ];
 
 module.exports = {

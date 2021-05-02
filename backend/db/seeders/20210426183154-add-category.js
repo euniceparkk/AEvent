@@ -3,14 +3,14 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Categories', [
-      { category: "Mother's Day" },
-      { category: 'Free' },
       { category: 'Music' },
-      { category: 'Festivals' },
       { category: 'Food&Drink' },
+      { category: 'Festivals' },
       { category: 'Arts&Theater' },
       { category: 'Family' },
+      { category: "Mother's Day" },
       { category: 'Online' },
+      { category: 'Free' },
     ], {});
   },
 

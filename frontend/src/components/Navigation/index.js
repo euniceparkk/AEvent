@@ -49,10 +49,6 @@ function Navigation({ isLoaded }) {
         </NavLink>
       </div>
 
-      <div className="nav-bar__search-icon">
-        <i className="fas fa-search"></i>
-      </div>
-
       <div className='nav-bar__search-container'>
         <SearchForm />
       </div>
