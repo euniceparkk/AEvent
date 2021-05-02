@@ -1,4 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet');
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.one-favorite__container{
+  /* border: 3px solid red; */
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1fr;
+  padding: 10px;
+  margin: 15px;
+}
+.favorite-image__container{
+  /* border: 3px solid orange; */
+
+  grid-column: 7/11;
+  padding: 0px 45px;
+  margin: 0px 20px;
+}
 .favorite-img{
-  height: 100px;
-  width: 100px;
+  border: 1px solid rgb(170, 170, 170);
+  height: 115px;
+  width: 225px;
+}
+
+
+
+
+
+.favorite-details__container{
+  grid-column: 1/7;
+  /* padding-left: 5px; */
+}
+
+.title-text{
+  font-size: 18px;
+  color: rgb(39, 39, 39);
+  font-weight: 500;
+  /* text-transform: uppercase; */
+}
+
+.date-text{
+  font-size: 14px;
+  letter-spacing: .03em;
+  color: #F3712B;
+}
+
+.host-text{
+  font-size: 13px;
+  letter-spacing: .03em;
+  color:rgb(107, 107, 107);
+}
+
+.price-text{
+  font-size: 13px;
+  letter-spacing: .03em;
+  color:rgb(107, 107, 107);
 }

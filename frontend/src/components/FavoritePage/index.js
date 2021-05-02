@@ -30,23 +30,26 @@ function FavoritePage() {
 
   return (
     <>
-      <div className='tickets-event__container'>
-        <p>Likes</p>
+      <div className='all-favorites__container'>
+        <div className='all-favorites__small-container'>
 
-        <div className='all-favorites__container'>
-          {allFavorites.map((favorite) => {
-            const longDate = newDate(favorite.dateAndTime)
-            return (
-              <GetFavorites
-                key={favorite.id}
-                title={favorite.title}
-                date={longDate}
-                host={favorite.host}
-                price={favorite.ticketPrice}
-                image={favorite.image}
-              />
-            )
-          })}
+          <div className='likes-text'>Likes</div>
+
+          <div className='favorites-event__container'>
+            {allFavorites.map((favorite) => {
+              const longDate = newDate(favorite.dateAndTime)
+              return (
+                <GetFavorites
+                  key={favorite.id}
+                  title={favorite.title}
+                  date={longDate}
+                  host={favorite.host}
+                  price={favorite.ticketPrice}
+                  image={favorite.image}
+                />
+              )
+            })}
+          </div>
         </div>
 
       </div>
