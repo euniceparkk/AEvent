@@ -1,9 +1,31 @@
-.search-bar{
-  /* border-radius: 8px; */
-
-  width: 510px;
-  /* padding-left: 15px; */
-  background-color: #F7F3F3;
-  border: .5px solid white;
-  height: 35px;
+.search-page__container{
+  display: grid;
+  height: 2000px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(30, 1fr)
 }
+
+.search-found__text{
+  grid-column: 2/12;
+  grid-row: 2/3;
+  font-size: 17px;
+  padding: 15px;
+}
+
+.search-page__small-container{
+  /* border: 2px solid orange; */
+  background-color: #FFFBFF;
+  border-radius: 10px;
+
+  grid-column: 2/12;
+  grid-row: 3/12;
+
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 3em;
+}
+
+

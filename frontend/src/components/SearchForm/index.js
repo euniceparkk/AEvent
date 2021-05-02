@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { loadSearch } from '../../store/events';
 
+import './SearchForm.css'
 
 function SearchForm() {
   const dispatch = useDispatch();
@@ -43,9 +44,9 @@ function SearchForm() {
           placeholder='Search events'
           required
         />
-        <button
+        {/* <button
           type='submit'
-        ></button>
+        ></button> */}
       </form>
     </div>
   );

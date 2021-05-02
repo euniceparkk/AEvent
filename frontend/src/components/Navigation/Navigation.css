@@ -59,7 +59,7 @@
 }
 
 .nav-bar__search-container{
-  border: 3px solid red;
+  /* border: 3px solid red; */
   grid-column: 4/9;
   height: 50px;
 

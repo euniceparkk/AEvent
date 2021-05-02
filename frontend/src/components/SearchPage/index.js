@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getEvents, getFavorites } from "../../store/events";
+import { getEvents } from "../../store/events";
+import OneEvent from "../OneEvent";
+import { newDate } from '../Utils/index'
 
 import './SearchPage.css'
 
@@ -9,9 +11,7 @@ function SearchPage() {
 
   useEffect(() => {
     dispatch(getEvents())
-    dispatch(getFavorites())
   }, [dispatch])
-
 
   const searches = useSelector(state => state.events.searchResults);
 
@@ -27,10 +27,24 @@ function SearchPage() {
   // console.log('events!00000!!!', events)
 
   return (
-    <>
-      <div>{`Search found ${searches.length} results for the following:`}</div>
-      <div>hello</div>
-    </>
+    <div className='search-page__container'>
+
+      <div className='search-found__text'>
+        {`There are ${searches.length} event results found for the following:`}
+      </div>
+
+      <div className='search-page__small-container'>
+        {searches &&
+          searches.map((oneSearch) => {
+            const dateTime = newDate(oneSearch.dateAndTime)
+            return (
+              <OneEvent event={oneSearch} dateTime={dateTime} />
+              // console.log('onesearch', oneSearch)
+            )
+          })}
+      </div>
+
+    </div>
   )
 }
 
