@@ -18,11 +18,11 @@ function Navigation({ isLoaded }) {
       <>
         <div className='nav-fav__container'>
           <img className='fav-img' alt='favorite icon' src='https://aevent-project.s3.amazonaws.com/00-heart-regular.svg'></img>
-          <NavLink className='link-favorite' to='/profile/favorites'>Likes</NavLink>
+          <NavLink className='link-favorite' to='/favorites'>Likes</NavLink>
         </div>
         <div className='nav-tic__container'>
           <img className='tic-img' alt='ticket icon' src='https://aevent-project.s3.amazonaws.com/00-ticket-alt-solid.svg'></img>
-          <NavLink className='link-ticket' to='/profile/tickets'>Tickets</NavLink>
+          <NavLink className='link-ticket' to='/tickets'>Tickets</NavLink>
         </div>
         <div className='nav-prof__container'>
           <ProfileButton user={sessionUser} />

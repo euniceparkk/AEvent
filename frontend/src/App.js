@@ -7,7 +7,8 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePage from './components/HomePage';
 import EventPage from "./components/EventPage";
-import ProfilePage from "./components/ProfilePage";
+import TicketPage from "./components/TicketPage";
+import FavoritePage from "./components/FavoritePage";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,8 +28,11 @@ function App() {
           <Route path='/events/:id'>
             <EventPage />
           </Route>
-          <Route path='/profile'>
-            <ProfilePage />
+          <Route path='/tickets'>
+            <TicketPage />
+          </Route>
+          <Route path='/favorites'>
+            <FavoritePage />
           </Route>
           <Route>
             <h1>Page Not Found</h1>
