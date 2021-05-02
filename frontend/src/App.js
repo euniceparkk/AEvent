@@ -9,6 +9,7 @@ import HomePage from './components/HomePage';
 import EventPage from "./components/EventPage";
 import TicketPage from "./components/TicketPage";
 import FavoritePage from "./components/FavoritePage";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer />
     </>
   );
 }

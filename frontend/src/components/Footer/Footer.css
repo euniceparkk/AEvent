@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet');
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  height: 6em;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  font-weight: bold;
+  color: rgb(46, 46, 46);
+  border-top: 2px solid rgb(46, 46, 46);
+}
+
+.quote {
+  grid-column: 2 / 9;
+  grid-row: 3 / 4;
+  font-size: 1em;
+}
+
+.copyright {
+  display: flex;
+  grid-column: 11 / 13;
+  grid-row: 2 / 3;
+  justify-self: end;
+  align-items: flex;
+  padding-right: 25px;
+}
+
+.linkedin {
+  display: flex;
+  grid-column: 10 / 13;
+  grid-row: 3 / 4;
+  justify-self: end;
+  align-items: flex-end;
+  padding-right: 10px;
+}
+
+.linkedin, .copyright {
+  font-size: 12px;
+}
+
+.linkedin > a {
+  /* text-decoration: none; */
+  padding-left: 5px;
+  color: rgb(46, 46, 46);
+}
+
+#icon { 
+  margin-top: 3px;
+  height: 90px;
+  width: auto;
+  grid-row: 1 / 4;
+  grid-column: 13 / 13;
+}
