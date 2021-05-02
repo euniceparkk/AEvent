@@ -10,13 +10,19 @@
 
 }
 
-/* .h1{
+.login-btn{
+  /* border: 1px solid red; */
 
+  margin: 10px;
+  border-radius: 5px;
+  border-style: none;
+  
+  background-color: #F3712B;
+  color: white;
+  letter-spacing: .09em;
+  font-size: 13px;
+  cursor: pointer;
 }
-
-.h2{
-
-} */
 
 .login-form {
   display: flex;
@@ -63,12 +69,15 @@ input:focus {
   width: 200px;
   border-radius: 5px;
   font-size: medium;
+  border-style: none;
 
 }
 
 .submit-btn:hover {
   background-color: #F3712B;
   /* color: black; */
+  cursor: pointer;
+
 }
 
 .demo-btn {
@@ -77,14 +86,29 @@ input:focus {
   font-size: small;
   border-radius: 5px;
   padding: 4px 15px;
+  border-style: none;
 
 }
 
 .demo-btn:hover {
   background-color: #F3712B;
+  cursor: pointer;
+
 }
 
 .other-btn {
+  color: black;
+  border: .5px solid black;
+  background-color: #F7F3F3;
+  font-size: small;
+  border-radius: 5px;
+  padding: 4px 15px;
+  border-style: none;
+}
+
+.other-btn:hover{
+  background-color: #dddcdb;
+  cursor: pointer;
 }
 
 .other-div {
