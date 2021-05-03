@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
-
 import { useSelector, useDispatch } from 'react-redux';
-
 import { getFavorites } from '../../store/events';
 import GetFavorites from '../GetFavorites';
-
-
 import { newDate } from '../Utils';
 import './FavoritePage.css';
 
