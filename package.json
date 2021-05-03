@@ -1,4 +1,9 @@
 {
+  "name": "aevent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {},
   "scripts": {
     "heroku-postbuild": "npm run build --prefix frontend",
     "install": "npm --prefix backend install backend && npm --prefix frontend install frontend",
@@ -8,7 +13,15 @@
     "sequelize-cli": "npm run --prefix backend sequelize-cli",
     "start": "npm start --prefix backend"
   },
-  "dependencies": {
-    "@fortawesome/free-solid-svg-icons": "^5.15.3"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/euniceparkk/Solo-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/euniceparkk/Solo-Project/issues"
+  },
+  "homepage": "https://github.com/euniceparkk/Solo-Project#readme"
 }
