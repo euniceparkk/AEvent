@@ -29,13 +29,18 @@ function OneEvent({ user, event, dateTime, favorites }) {
         <NavLink className='single-event__img-container' to={`/events/${event.id}`}>
           <img alt='one-event' className='single-event__img' src={event.image} />
         </NavLink>
-        <button className='click-fav__btn' onClick={addOneFav}>Fav</button>
         {/* <button onClick={deleteOneFav}>Delete</button> */}
+        <div className='click-fav__container'>
+          <button className='click-fav__btn' onClick={addOneFav}>like</button>
+        </div>
+
         <div className='single-event__details'>
           {/* <NavLink to={`/events/${event.id}`}> */}
           <p className='single-event__title'>{event.title}</p>
           {/* </NavLink> */}
           <p className='single-event__date'>{dateTime}</p>
+
+
         </div>
       </div>
     </>

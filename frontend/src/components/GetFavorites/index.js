@@ -25,7 +25,7 @@ function GetFavorites({ eventId, title, date, host, price, image, change }) {
         <p className='date-text'>{date}</p>
         <p className='host-text'>{host}</p>
         <p className='price-text'>Starts at ${price}</p>
-        <button onClick={deleteOneFav}>delete</button>
+        <button className='click-delete__btn' onClick={deleteOneFav}>delete</button>
       </div>
 
       <div className='favorite-image__container'>

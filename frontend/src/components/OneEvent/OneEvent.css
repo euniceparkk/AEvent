@@ -46,11 +46,9 @@
   /* object-fit: cover; */
 }
 
-.click-fav__btn{
-  background: none;
-  border-radius: 15px;
-  margin: 15px;
-}
+
+
+
 
 
 .single-event__details {
@@ -84,4 +82,23 @@
   font-size: 12px;
   letter-spacing: .05rem;
   padding-left: 5px;
+}
+
+.click-fav__container{
+}
+
+.click-fav__btn{
+  background: none;
+  border-radius: 15px;
+  border-style: none;
+  width: 50px;
+  height: 25px;
+  background-color: #F3712B;
+  color: white;
+}
+
+.click-fav__btn:hover{
+  cursor: pointer;
+  background-color: #F7F3F3;
+  color: #F3712B;
 }

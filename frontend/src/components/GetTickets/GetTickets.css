@@ -47,7 +47,21 @@
   width: 215px;
 }
 
+.click-delete__btn{
+  background: none;
+  border-radius: 15px;
+  border-style: none;
+  width: 50px;
+  height: 25px;
+  background-color: #F3712B;
+  color: white;
+}
 
+.click-delete__btn:hover{
+  cursor: pointer;
+  background-color: #F7F3F3;
+  color: #F3712B;
+}
 
 
 
