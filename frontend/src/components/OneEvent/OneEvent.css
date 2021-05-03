@@ -1,5 +1,5 @@
 .single-event__container{
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   background-color: white;
   /* padding: 10px; */
   height: 295px;
@@ -46,7 +46,11 @@
   /* object-fit: cover; */
 }
 
-
+.click-fav__btn{
+  background: none;
+  border-radius: 15px;
+  margin: 15px;
+}
 
 
 .single-event__details {
